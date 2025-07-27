@@ -4,17 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Services | Agyekum Freelance</title>
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="styles/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 <body>
-    <!-- Header -->
     <header>
-        <div class="container header-container">
-            <div class="logo">
-                <img src="images/logo.png" alt="Agyekum Logo">
-                <h1>Agyekum</h1>
-            </div>
+        <div class="container">
+            <div class="logo">Agyekum</div>
             <nav>
                 <ul>
                     <li><a href="index.html">Home</a></li>
@@ -23,253 +19,152 @@
                     <li><a href="portfolio.html">Portfolio</a></li>
                     <li><a href="contact.html">Contact</a></li>
                 </ul>
-                <div class="mobile-menu">
-                    <i class="fas fa-bars"></i>
-                </div>
             </nav>
+            <div class="mobile-menu">
+                <i class="fas fa-bars"></i>
+            </div>
         </div>
     </header>
 
-    <!-- Page Banner -->
-    <section class="page-banner">
+    <section class="services-hero">
         <div class="container">
             <h1>My Services</h1>
-            <p>Solutions tailored to your business needs</p>
+            <p>Comprehensive solutions tailored to your needs</p>
         </div>
     </section>
 
-    <!-- Services Details -->
     <section class="services-details">
         <div class="container">
-            <div class="section-title">
-                <h2>What I Offer</h2>
-                <p>Comprehensive solutions to grow your business</p>
+            <div class="service">
+                <div class="service-image">
+                    <img src="images/web-dev.jpg" alt="Web Development">
+                </div>
+                <div class="service-content">
+                    <h2>Web Development</h2>
+                    <p>I create responsive, high-performance websites and web applications using modern technologies. Whether you need a simple brochure site or a complex web application, I've got you covered.</p>
+                    <ul class="service-features">
+                        <li><i class="fas fa-check"></i> Custom website development</li>
+                        <li><i class="fas fa-check"></i> E-commerce solutions</li>
+                        <li><i class="fas fa-check"></i> Web application development</li>
+                        <li><i class="fas fa-check"></i> API integration</li>
+                        <li><i class="fas fa-check"></i> Website maintenance</li>
+                    </ul>
+                    <div class="service-tech">
+                        <h4>Technologies I Use:</h4>
+                        <div class="tech-icons">
+                            <i class="fab fa-html5" title="HTML5"></i>
+                            <i class="fab fa-css3-alt" title="CSS3"></i>
+                            <i class="fab fa-js" title="JavaScript"></i>
+                            <i class="fab fa-react" title="React"></i>
+                            <i class="fab fa-node-js" title="Node.js"></i>
+                        </div>
+                    </div>
+                </div>
             </div>
-            
-            <div class="services-grid">
-                <div class="service-card">
-                    <div class="service-icon">
-                        <i class="fas fa-laptop-code"></i>
-                    </div>
-                    <h3>Web Development</h3>
-                    <p>Custom websites and web applications built with modern technologies that are fast, secure, and scalable.</p>
-                    <ul>
-                        <li>Responsive Design</li>
-                        <li>E-commerce Solutions</li>
-                        <li>Content Management Systems</li>
-                        <li>API Integration</li>
+
+            <div class="service">
+                <div class="service-content">
+                    <h2>UI/UX Design</h2>
+                    <p>I design beautiful, intuitive interfaces that enhance user experience and drive engagement. My designs are not just visually appealing but also functional and user-friendly.</p>
+                    <ul class="service-features">
+                        <li><i class="fas fa-check"></i> User interface design</li>
+                        <li><i class="fas fa-check"></i> User experience research</li>
+                        <li><i class="fas fa-check"></i> Wireframing & prototyping</li>
+                        <li><i class="fas fa-check"></i> Mobile app design</li>
+                        <li><i class="fas fa-check"></i> Design system creation</li>
                     </ul>
+                    <div class="service-tech">
+                        <h4>Tools I Use:</h4>
+                        <div class="tech-icons">
+                            <i class="fab fa-figma" title="Figma"></i>
+                            <i class="fab fa-adobe" title="Adobe XD"></i>
+                            <i class="fas fa-pen-nib" title="Sketch"></i>
+                        </div>
+                    </div>
                 </div>
-                <div class="service-card">
-                    <div class="service-icon">
-                        <i class="fas fa-paint-brush"></i>
-                    </div>
-                    <h3>UI/UX Design</h3>
-                    <p>User-centered design solutions that enhance user experience and drive engagement for your digital products.</p>
-                    <ul>
-                        <li>Wireframing & Prototyping</li>
-                        <li>User Research & Testing</li>
-                        <li>Interaction Design</li>
-                        <li>Design Systems</li>
-                    </ul>
+                <div class="service-image">
+                    <img src="images/ui-ux.jpg" alt="UI/UX Design">
                 </div>
-                <div class="service-card">
-                    <div class="service-icon">
-                        <i class="fas fa-mobile-alt"></i>
-                    </div>
-                    <h3>App Development</h3>
-                    <p>Native and cross-platform mobile applications that provide seamless experiences across all devices.</p>
-                    <ul>
-                        <li>iOS & Android Development</li>
-                        <li>React Native Apps</li>
-                        <li>App Maintenance</li>
-                        <li>API Integration</li>
-                    </ul>
+            </div>
+
+            <div class="service">
+                <div class="service-image">
+                    <img src="images/digital-marketing.jpg" alt="Digital Marketing">
                 </div>
-                <div class="service-card">
-                    <div class="service-icon">
-                        <i class="fas fa-search"></i>
-                    </div>
-                    <h3>SEO Optimization</h3>
-                    <p>Improve your search engine rankings and drive organic traffic to your website with proven SEO strategies.</p>
-                    <ul>
-                        <li>Technical SEO Audit</li>
-                        <li>Keyword Research</li>
-                        <li>On-page Optimization</li>
-                        <li>SEO Analytics</li>
+                <div class="service-content">
+                    <h2>Digital Marketing</h2>
+                    <p>I help businesses grow their online presence through strategic digital marketing campaigns that deliver measurable results.</p>
+                    <ul class="service-features">
+                        <li><i class="fas fa-check"></i> SEO optimization</li>
+                        <li><i class="fas fa-check"></i> Social media marketing</li>
+                        <li><i class="fas fa-check"></i> Content marketing</li>
+                        <li><i class="fas fa-check"></i> Email marketing</li>
+                        <li><i class="fas fa-check"></i> PPC advertising</li>
                     </ul>
-                </div>
-                <div class="service-card">
-                    <div class="service-icon">
-                        <i class="fas fa-bullhorn"></i>
+                    <div class="service-tech">
+                        <h4>Platforms I Work With:</h4>
+                        <div class="tech-icons">
+                            <i class="fab fa-google" title="Google Ads"></i>
+                            <i class="fab fa-facebook" title="Facebook Ads"></i>
+                            <i class="fab fa-instagram" title="Instagram"></i>
+                            <i class="fab fa-linkedin" title="LinkedIn"></i>
+                        </div>
                     </div>
-                    <h3>Digital Marketing</h3>
-                    <p>Comprehensive marketing strategies to increase your online presence and convert visitors into customers.</p>
-                    <ul>
-                        <li>Social Media Marketing</li>
-                        <li>Content Marketing</li>
-                        <li>Email Campaigns</li>
-                        <li>PPC Management</li>
-                    </ul>
-                </div>
-                <div class="service-card">
-                    <div class="service-icon">
-                        <i class="fas fa-pencil-alt"></i>
-                    </div>
-                    <h3>Content Creation</h3>
-                    <p>Engaging and SEO-optimized content that tells your brand story and connects with your audience.</p>
-                    <ul>
-                        <li>Blog Writing</li>
-                        <li>Copywriting</li>
-                        <li>Video Scripts</li>
-                        <li>Social Media Content</li>
-                    </ul>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Process Section -->
-    <section class="process">
-        <div class="container">
-            <div class="section-title">
-                <h2>My Process</h2>
-                <p>How I deliver exceptional results</p>
-            </div>
-            <div class="process-steps">
-                <div class="step">
-                    <div class="step-number">1</div>
-                    <h3>Discovery</h3>
-                    <p>Understanding your goals, audience, and challenges</p>
-                </div>
-                <div class="step">
-                    <div class="step-number">2</div>
-                    <h3>Planning</h3>
-                    <p>Creating a detailed roadmap for your project</p>
-                </div>
-                <div class="step">
-                    <div class="step-number">3</div>
-                    <h3>Design</h3>
-                    <p>Crafting intuitive user experiences and interfaces</p>
-                </div>
-                <div class="step">
-                    <div class="step-number">4</div>
-                    <h3>Development</h3>
-                    <p>Building robust, scalable solutions</p>
-                </div>
-                <div class="step">
-                    <div class="step-number">5</div>
-                    <h3>Launch</h3>
-                    <p>Deploying and optimizing your solution</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Pricing Section -->
     <section class="pricing">
         <div class="container">
-            <div class="section-title">
-                <h2>Pricing Options</h2>
-                <p>Flexible solutions for every budget</p>
-            </div>
+            <h2 class="section-title">Pricing Plans</h2>
             <div class="pricing-grid">
                 <div class="pricing-card">
-                    <h3>Basic Package</h3>
+                    <h3>Basic</h3>
                     <div class="price">$499<span>/project</span></div>
                     <ul>
-                        <li>5 Page Website</li>
-                        <li>Responsive Design</li>
-                        <li>Basic SEO Setup</li>
-                        <li>1 Month Support</li>
-                        <li>Content Integration</li>
+                        <li><i class="fas fa-check"></i> 5 Page Website</li>
+                        <li><i class="fas fa-check"></i> Responsive Design</li>
+                        <li><i class="fas fa-check"></i> Basic SEO</li>
+                        <li><i class="fas fa-check"></i> 1 Revision</li>
+                        <li><i class="fas fa-check"></i> 1 Month Support</li>
                     </ul>
-                    <a href="contact.html" class="btn">Get Started</a>
+                    <a href="contact.html" class="btn-secondary">Get Started</a>
                 </div>
                 <div class="pricing-card featured">
-                    <div class="popular">Most Popular</div>
-                    <h3>Professional Package</h3>
-                    <div class="price">$1,299<span>/project</span></div>
+                    <div class="popular-badge">Most Popular</div>
+                    <h3>Standard</h3>
+                    <div class="price">$999<span>/project</span></div>
                     <ul>
-                        <li>10 Page Website</li>
-                        <li>Custom Design</li>
-                        <li>Advanced SEO</li>
-                        <li>3 Months Support</li>
-                        <li>Content Creation</li>
-                        <li>Analytics Setup</li>
+                        <li><i class="fas fa-check"></i> 10 Page Website</li>
+                        <li><i class="fas fa-check"></i> Custom Design</li>
+                        <li><i class="fas fa-check"></i> Advanced SEO</li>
+                        <li><i class="fas fa-check"></i> 3 Revisions</li>
+                        <li><i class="fas fa-check"></i> 3 Months Support</li>
                     </ul>
-                    <a href="contact.html" class="btn">Get Started</a>
+                    <a href="contact.html" class="btn-primary">Get Started</a>
                 </div>
                 <div class="pricing-card">
-                    <h3>Premium Package</h3>
-                    <div class="price">$2,499<span>/project</span></div>
+                    <h3>Premium</h3>
+                    <div class="price">$1999<span>/project</span></div>
                     <ul>
-                        <li>Unlimited Pages</li>
-                        <li>Custom Design & Development</li>
-                        <li>Comprehensive SEO</li>
-                        <li>6 Months Support</li>
-                        <li>Content Strategy</li>
-                        <li>Marketing Campaign</li>
+                        <li><i class="fas fa-check"></i> Unlimited Pages</li>
+                        <li><i class="fas fa-check"></i> E-commerce Functionality</li>
+                        <li><i class="fas fa-check"></i> Comprehensive SEO</li>
+                        <li><i class="fas fa-check"></i> Unlimited Revisions</li>
+                        <li><i class="fas fa-check"></i> 6 Months Support</li>
                     </ul>
-                    <a href="contact.html" class="btn">Get Started</a>
+                    <a href="contact.html" class="btn-secondary">Get Started</a>
                 </div>
             </div>
-            <div class="custom-solutions">
-                <p>Need a custom solution? <a href="contact.html">Contact me</a> for a personalized quote.</p>
-            </div>
+            <p class="pricing-note">* Custom projects available with tailored pricing. <a href="contact.html">Contact me</a> for a quote.</p>
         </div>
     </section>
 
-    <!-- Footer -->
     <footer>
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-col">
-                    <h3>Agyekum Freelance</h3>
-                    <p>Providing exceptional digital solutions to businesses worldwide. Let's work together to bring your ideas to life.</p>
-                    <div class="social-links">
-                        <a href="#"><i class="fab fa-facebook-f"></i></a>
-                        <a href="#"><i class="fab fa-twitter"></i></a>
-                        <a href="#"><i class="fab fa-instagram"></i></a>
-                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
-                        <a href="#"><i class="fab fa-github"></i></a>
-                    </div>
-                </div>
-                <div class="footer-col">
-                    <h3>Quick Links</h3>
-                    <ul class="footer-links">
-                        <li><a href="index.html">Home</a></li>
-                        <li><a href="about.html">About</a></li>
-                        <li><a href="services.html">Services</a></li>
-                        <li><a href="portfolio.html">Portfolio</a></li>
-                        <li><a href="contact.html">Contact</a></li>
-                    </ul>
-                </div>
-                <div class="footer-col">
-                    <h3>Services</h3>
-                    <ul class="footer-links">
-                        <li><a href="services.html">Web Development</a></li>
-                        <li><a href="services.html">UI/UX Design</a></li>
-                        <li><a href="services.html">App Development</a></li>
-                        <li><a href="services.html">SEO Optimization</a></li>
-                        <li><a href="services.html">Digital Marketing</a></li>
-                    </ul>
-                </div>
-                <div class="footer-col">
-                    <h3>Contact Info</h3>
-                    <ul class="footer-links">
-                        <li><i class="fas fa-envelope"></i> hello@agyekum.com</li>
-                        <li><i class="fas fa-phone"></i> +1 (123) 456-7890</li>
-                        <li><i class="fas fa-map-marker-alt"></i> Accra, Ghana</li>
-                    </ul>
-                </div>
-            </div>
-            <div class="footer-bottom">
-                <p>&copy; 2023 Agyekum Freelance. All Rights Reserved.</p>
-            </div>
-        </div>
+        <!-- Same footer as index.html -->
     </footer>
 
-    <script src="js/script.js"></script>
+    <script src="scripts/script.js"></script>
 </body>
 </html>
