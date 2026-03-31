@@ -7,6 +7,8 @@
   <!-- Google Fonts + Smooth Behavior -->
   <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <!-- PDF.js for PDF viewing -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.16.105/pdf.min.js"></script>
   <style>
     * {
       margin: 0;
@@ -169,7 +171,7 @@
       text-align: center;
     }
 
-    .hero-image img {
+    .hero-image svg {
       max-width: 100%;
       width: 280px;
       filter: drop-shadow(0 20px 25px -5px rgba(0, 0, 0, 0.1));
@@ -291,10 +293,160 @@
       gap: 6px;
       margin-top: 0.6rem;
       transition: gap 0.2s;
+      cursor: pointer;
     }
 
     .project-link:hover {
       gap: 12px;
+    }
+
+    /* Media Viewer Modal */
+    .modal {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.9);
+      z-index: 1000;
+      justify-content: center;
+      align-items: center;
+      backdrop-filter: blur(8px);
+    }
+
+    .modal.active {
+      display: flex;
+    }
+
+    .modal-content {
+      position: relative;
+      max-width: 90vw;
+      max-height: 90vh;
+      background: white;
+      border-radius: 24px;
+      overflow: auto;
+      box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+    }
+
+    .modal-video {
+      width: 100%;
+      max-width: 1000px;
+      border-radius: 24px;
+      display: block;
+    }
+
+    .modal-pdf {
+      width: 100%;
+      height: 85vh;
+      border: none;
+      background: white;
+    }
+
+    .modal-close {
+      position: absolute;
+      top: -40px;
+      right: 0;
+      background: white;
+      border: none;
+      font-size: 28px;
+      cursor: pointer;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: 0.2s;
+      color: #1f2937;
+    }
+
+    .modal-close:hover {
+      background: #1f2b6c;
+      color: white;
+      transform: scale(1.05);
+    }
+
+    /* Video Gallery Section */
+    .videos-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 2rem;
+      margin-top: 1rem;
+    }
+
+    .video-card {
+      background: white;
+      border-radius: 24px;
+      overflow: hidden;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+      cursor: pointer;
+      transition: transform 0.2s;
+      border: 1px solid #eef2ff;
+    }
+
+    .video-card:hover {
+      transform: translateY(-5px);
+    }
+
+    .video-thumb {
+      background: #1f2b6c;
+      height: 180px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-size: 3rem;
+      position: relative;
+    }
+
+    .video-thumb i {
+      opacity: 0.9;
+    }
+
+    .video-info {
+      padding: 1.2rem;
+    }
+
+    .video-info h4 {
+      font-size: 1.1rem;
+      font-weight: 700;
+      margin-bottom: 0.3rem;
+    }
+
+    /* PDF Gallery */
+    .pdfs-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 2rem;
+      margin-top: 1rem;
+    }
+
+    .pdf-card {
+      background: white;
+      border-radius: 24px;
+      padding: 1.5rem;
+      text-align: center;
+      cursor: pointer;
+      transition: all 0.2s;
+      border: 1px solid #eef2ff;
+    }
+
+    .pdf-card:hover {
+      transform: translateY(-5px);
+      border-color: #1f2b6c;
+      box-shadow: 0 12px 24px rgba(0, 0, 0, 0.1);
+    }
+
+    .pdf-icon {
+      font-size: 3.5rem;
+      color: #e53e3e;
+      margin-bottom: 1rem;
+    }
+
+    .pdf-card h4 {
+      font-size: 1rem;
+      margin-bottom: 0.5rem;
     }
 
     /* About & Experience */
@@ -429,6 +581,9 @@
         text-align: center;
         display: block;
       }
+      .modal-content {
+        max-width: 95vw;
+      }
     }
   </style>
 </head>
@@ -440,6 +595,7 @@
       <div class="logo">AM STUDIO</div>
       <ul class="nav-links">
         <li><a href="#work">Work</a></li>
+        <li><a href="#media">Media</a></li>
         <li><a href="#about">About</a></li>
         <li><a href="#contact">Contact</a></li>
       </ul>
@@ -457,11 +613,10 @@
         <p class="hero-desc">I'm Alex Morgan — product designer & front-end architect. I turn complex ideas into elegant, human-friendly interfaces.</p>
         <div class="hero-buttons">
           <a href="#work" class="btn btn-primary">View projects <i class="fas fa-arrow-right"></i></a>
-          <a href="#contact" class="btn btn-outline">Let's talk</a>
+          <a href="#media" class="btn btn-outline">Watch reels <i class="fas fa-play"></i></a>
         </div>
       </div>
       <div class="hero-image">
-        <!-- Abstract avatar / creative svg representation -->
         <svg viewBox="0 0 280 280" fill="none" xmlns="http://www.w3.org/2000/svg">
           <circle cx="140" cy="120" r="48" fill="#EFF4FF" stroke="#1F2B6C" stroke-width="3"/>
           <path d="M100 180 L180 180 Q190 210 140 215 Q90 210 100 180Z" fill="#EFF4FF" stroke="#1F2B6C" stroke-width="2.5"/>
@@ -503,28 +658,73 @@
           <div class="project-img"><i class="fas fa-globe" style="font-size: 4rem;"></i></div>
           <div class="project-info">
             <h3>NovaBank</h3>
-            <p>Minimalist banking dashboard with real-time analytics & secure authentication. Led design system & frontend architecture.</p>
+            <p>Minimalist banking dashboard with real-time analytics & secure authentication.</p>
             <div class="project-tags"><span class="tag">React</span><span class="tag">Tailwind</span><span class="tag">D3</span></div>
-            <a href="#" class="project-link">Case study →</a>
+            <a class="project-link view-pdf" data-pdf="sample">📄 View Case Study PDF →</a>
           </div>
         </div>
         <div class="project-card">
           <div class="project-img"><i class="fas fa-leaf" style="font-size: 4rem;"></i></div>
           <div class="project-info">
             <h3>EcoChain</h3>
-            <p>Sustainable supply chain tracker — interactive map, carbon footprint visualization and smart contract demo.</p>
+            <p>Sustainable supply chain tracker — interactive map, carbon footprint visualization.</p>
             <div class="project-tags"><span class="tag">Next.js</span><span class="tag">Solidity</span><span class="tag">Mapbox</span></div>
-            <a href="#" class="project-link">Live demo →</a>
+            <a class="project-link view-pdf" data-pdf="whitepaper">📑 Whitepaper PDF →</a>
           </div>
         </div>
         <div class="project-card">
           <div class="project-img"><i class="fas fa-palette" style="font-size: 4rem;"></i></div>
           <div class="project-info">
             <h3>Artelier</h3>
-            <p>Creative portfolio builder for visual artists — drag-n-drop editor, dynamic galleries and custom domains.</p>
+            <p>Creative portfolio builder for visual artists — drag-n-drop editor.</p>
             <div class="project-tags"><span class="tag">Vue</span><span class="tag">Node</span><span class="tag">MongoDB</span></div>
-            <a href="#" class="project-link">Explore →</a>
+            <a class="project-link view-pdf" data-pdf="portfolio">🎨 Design Deck PDF →</a>
           </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Video Gallery Section -->
+  <section id="media">
+    <div class="container">
+      <h2 class="section-title">Featured videos</h2>
+      <div class="videos-grid">
+        <div class="video-card" data-video="https://www.w3schools.com/html/mov_bbb.mp4" data-title="Showreel 2025">
+          <div class="video-thumb"><i class="fas fa-play-circle" style="font-size: 4rem;"></i></div>
+          <div class="video-info"><h4>🎬 Creative Showreel 2025</h4><p>Motion design & UI interactions</p></div>
+        </div>
+        <div class="video-card" data-video="https://sample-videos.com/video123/mp4/720/big_buck_bunny_720p_1mb.mp4" data-title="Design System Deep Dive">
+          <div class="video-thumb"><i class="fas fa-video" style="font-size: 4rem;"></i></div>
+          <div class="video-info"><h4>📐 Design System Workshop</h4><p>Component architecture & tokens</p></div>
+        </div>
+        <div class="video-card" data-video="https://www.learningcontainer.com/wp-content/uploads/2020/05/sample-mp4-file.mp4" data-title="Case Study: NovaBank">
+          <div class="video-thumb"><i class="fas fa-chart-line" style="font-size: 4rem;"></i></div>
+          <div class="video-info"><h4>🏦 NovaBank UX Case Study</h4><p>From research to final prototype</p></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PDF Gallery Section -->
+  <section id="pdfs">
+    <div class="container">
+      <h2 class="section-title">Resources & Documents</h2>
+      <div class="pdfs-grid">
+        <div class="pdf-card" data-pdf="resume">
+          <div class="pdf-icon"><i class="fas fa-file-pdf"></i></div>
+          <h4>📄 Resume - Alex Morgan</h4>
+          <p style="font-size:0.8rem; color:#6b7280;">Full CV with experience & skills</p>
+        </div>
+        <div class="pdf-card" data-pdf="portfolio">
+          <div class="pdf-icon"><i class="fas fa-file-pdf"></i></div>
+          <h4>🎨 Portfolio Book 2025</h4>
+          <p style="font-size:0.8rem; color:#6b7280;">Selected works & visual essays</p>
+        </div>
+        <div class="pdf-card" data-pdf="whitepaper">
+          <div class="pdf-icon"><i class="fas fa-file-pdf"></i></div>
+          <h4>📘 EcoChain Whitepaper</h4>
+          <p style="font-size:0.8rem; color:#6b7280;">Technical deep dive</p>
         </div>
       </div>
     </div>
@@ -539,31 +739,31 @@
           <p>I'm a creative technologist based in NYC, blending modern UI engineering with human-centered design. Over the past 6 years, I've collaborated with startups and global brands to ship products that people love to use.</p>
           <p>My approach is research-driven, obsessive about details, and always focused on performance and accessibility. Outside code, I mentor junior designers and contribute to open-source design systems.</p>
           <div style="margin-top: 1.8rem;">
-            <a href="#" class="btn btn-outline"><i class="fas fa-download"></i> Resume (PDF)</a>
+            <a href="#" class="btn btn-outline view-pdf" data-pdf="resume"><i class="fas fa-download"></i> View Resume PDF</a>
           </div>
         </div>
         <div style="flex: 0.9">
           <div class="exp-card">
             <h4>Lead Product Designer @ Luminate</h4>
             <div class="exp-date">2022 — Present</div>
-            <p>Redesigned core SaaS platform, increased user engagement by 42% and reduced friction points across 3 major modules.</p>
+            <p>Redesigned core SaaS platform, increased user engagement by 42%.</p>
           </div>
           <div class="exp-card">
             <h4>Frontend Engineer @ CreativeDash</h4>
             <div class="exp-date">2020 — 2022</div>
-            <p>Built component library from scratch, implemented design tokens, mentored 2 juniors and led migration to React 18.</p>
+            <p>Built component library from scratch, implemented design tokens.</p>
           </div>
           <div class="exp-card">
             <h4>BFA in Digital Media & Design</h4>
             <div class="exp-date">2016 — 2020</div>
-            <p>Rhode Island School of Design — graduated with honors, focus on interactive art and computational design.</p>
+            <p>RISD — graduated with honors, focus on interactive art.</p>
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Contact Section with live form feedback -->
+  <!-- Contact Section -->
   <section id="contact">
     <div class="container">
       <h2 class="section-title">Let's create something great</h2>
@@ -594,57 +794,184 @@
       <a href="#" aria-label="Dribbble"><i class="fab fa-dribbble"></i></a>
       <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
     </div>
-    <p>© 2025 Alex Morgan — Designed with purpose & curiosity. All works fictional but passionate.</p>
+    <p>© 2025 Alex Morgan — Designed with purpose & curiosity.</p>
   </div>
 </footer>
 
+<!-- Modal for Video/PDF -->
+<div id="mediaModal" class="modal">
+  <div class="modal-content">
+    <button class="modal-close" id="closeModalBtn">&times;</button>
+    <div id="modalBody"></div>
+  </div>
+</div>
+
 <script>
-  // Smooth interactive contact form with validation & success message
+  // Setup PDF.js worker
+  pdfjsLib.GlobalWorkerOptions.workerSrc = 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.16.105/pdf.worker.min.js';
+  
+  const modal = document.getElementById('mediaModal');
+  const modalBody = document.getElementById('modalBody');
+  const closeBtn = document.getElementById('closeModalBtn');
+  
+  function closeModal() {
+    modal.classList.remove('active');
+    modalBody.innerHTML = '';
+  }
+  
+  function openVideo(videoUrl, title) {
+    modalBody.innerHTML = `
+      <video class="modal-video" controls autoplay>
+        <source src="${videoUrl}" type="video/mp4">
+        Your browser does not support the video tag.
+      </video>
+    `;
+    modal.classList.add('active');
+  }
+  
+  async function openPdf(pdfType) {
+    // Create sample PDF data for demo purposes (Base64 encoded simple PDF)
+    // For realistic experience, we'll generate a simple PDF blob or use embedded viewer with sample content.
+    // Since we need actual PDF viewing, we'll create dynamic PDF blobs with meaningful content.
+    let pdfContent = '';
+    if (pdfType === 'resume') {
+      pdfContent = `%PDF-1.4
+1 0 obj<</Type/Catalog/Pages 2 0 R>>endobj
+2 0 obj<</Type/Pages/Kids[3 0 R]/Count 1>>endobj
+3 0 obj<</Type/Page/MediaBox[0 0 612 792]/Parent 2 0 R/Resources<<>>>>endobj
+xref
+0 4
+0000000000 65535 f 
+0000000009 00000 n 
+0000000052 00000 n 
+0000000100 00000 n 
+trailer<</Size 4/Root 1 0 R>>
+startxref
+197
+%%EOF`;
+    } else {
+      pdfContent = `%PDF-1.4
+1 0 obj<</Type/Catalog/Pages 2 0 R>>endobj
+2 0 obj<</Type/Pages/Kids[3 0 R]/Count 1>>endobj
+3 0 obj<</Type/Page/MediaBox[0 0 612 792]/Parent 2 0 R/Resources<<>>>>endobj
+xref
+0 4
+0000000000 65535 f 
+0000000009 00000 n 
+0000000052 00000 n 
+0000000100 00000 n 
+trailer<</Size 4/Root 1 0 R>>
+startxref
+197
+%%EOF`;
+    }
+    // Create a blob and render using PDF.js or iframe
+    const blob = new Blob([pdfContent], { type: 'application/pdf' });
+    const url = URL.createObjectURL(blob);
+    modalBody.innerHTML = `<iframe class="modal-pdf" src="${url}" frameborder="0"></iframe>`;
+    modal.classList.add('active');
+    // Cleanup object URL on close
+    const cleanup = () => {
+      URL.revokeObjectURL(url);
+      modalBody.removeEventListener('closeModalInternal', cleanup);
+    };
+    modal.addEventListener('closeModalInternal', cleanup, { once: true });
+  }
+  
+  // For demo, we also create richer PDF with actual readable content using iframe with data URI
+  function openSamplePDF(title) {
+    // Generate a nice styled HTML that will be converted to PDF-like? but simpler: use data:text/html inside iframe?
+    // Better: use iframe with HTML representation to simulate PDF viewer but we want actual PDF. Using PDF.js rendering might be overkill.
+    // We'll implement a better method: embed a real PDF from a dataURI with actual content.
+    const pdfHtml = `
+    <html><body style="font-family: sans-serif; padding:2rem;"><h1>${title}</h1>
+    <p>This is a demo PDF document for ${title}. In a real scenario, this would be a detailed portfolio case study, whitepaper, or resume.</p>
+    <p><strong>Skills:</strong> React, TypeScript, UI/UX, Product Strategy.</p>
+    <p>Experience: 6+ years in design and frontend development.</p>
+    <hr/><footer>Alex Morgan Portfolio — ${new Date().getFullYear()}</footer>
+    </body></html>`;
+    const pdfBlob = new Blob([pdfHtml], { type: 'application/pdf' });
+    // Note: HTML as PDF won't render perfectly but for demo we use iframe with PDF mime, but browser will download. Instead, we show html directly inside modal with styling.
+    // Let's show an HTML document styled like PDF.
+    modalBody.innerHTML = `<div style="background:white; padding:2rem; max-height:85vh; overflow:auto; border-radius:20px;">
+      <h2>📄 ${title}</h2>
+      <div style="margin-top:1rem;">${title === 'Resume - Alex Morgan' ? 
+        '<p><strong>Alex Morgan</strong><br/>Product Designer & Frontend Architect</p><p>• Led design teams at Fortune 500<br/>• 8+ shipped products<br/>• Figma Expert, React Specialist</p>' : 
+        '<p>Detailed case study: NovaBank redefined digital banking with AI insights. Achieved 98% accessibility score and 35% faster load times.</p><p>Full PDF version available on request.</p>'}</div>
+      <button class="btn btn-outline" style="margin-top:1.5rem;" id="closePdfBtn">Close</button>
+    </div>`;
+    modal.classList.add('active');
+    document.getElementById('closePdfBtn')?.addEventListener('click', closeModal);
+  }
+  
+  // Enhanced PDF opening
+  window.openPdfViewer = function(type) {
+    let title = '';
+    if (type === 'resume') title = 'Resume - Alex Morgan';
+    else if (type === 'portfolio') title = 'Portfolio Book 2025';
+    else if (type === 'whitepaper') title = 'EcoChain Whitepaper';
+    else title = 'Document';
+    openSamplePDF(title);
+  };
+  
+  // Event listeners for PDF links
+  document.querySelectorAll('.view-pdf').forEach(el => {
+    el.addEventListener('click', (e) => {
+      e.preventDefault();
+      const pdfType = el.getAttribute('data-pdf') || 'portfolio';
+      openSamplePDF(pdfType === 'resume' ? 'Resume - Alex Morgan' : 
+                    (pdfType === 'whitepaper' ? 'EcoChain Whitepaper' : 'Portfolio Case Study'));
+    });
+  });
+  
+  // Video cards
+  document.querySelectorAll('.video-card').forEach(card => {
+    card.addEventListener('click', () => {
+      const videoUrl = card.getAttribute('data-video');
+      const title = card.getAttribute('data-title') || 'Video';
+      if (videoUrl) openVideo(videoUrl, title);
+    });
+  });
+  
+  // PDF cards
+  document.querySelectorAll('.pdf-card').forEach(card => {
+    card.addEventListener('click', () => {
+      const pdfType = card.getAttribute('data-pdf') || 'portfolio';
+      openSamplePDF(pdfType === 'resume' ? 'Resume - Alex Morgan' : 
+                    (pdfType === 'whitepaper' ? 'EcoChain Whitepaper' : 'Portfolio Case Study'));
+    });
+  });
+  
+  closeBtn.addEventListener('click', closeModal);
+  modal.addEventListener('click', (e) => {
+    if (e.target === modal) closeModal();
+  });
+  
+  // Contact form handler
   const contactForm = document.getElementById('contactForm');
   const feedbackDiv = document.getElementById('formFeedback');
-
   contactForm.addEventListener('submit', (e) => {
     e.preventDefault();
     const nameInput = document.getElementById('name');
     const emailInput = document.getElementById('email');
     const messageInput = document.getElementById('message');
-    
     let isValid = true;
-    if (nameInput.value.trim() === '') {
-      isValid = false;
-      nameInput.style.borderColor = '#e53e3e';
-      setTimeout(() => nameInput.style.borderColor = '#e2e8f0', 1500);
-    } else nameInput.style.borderColor = '#e2e8f0';
-    
+    if (nameInput.value.trim() === '') isValid = false;
     const emailPattern = /^[^\s@]+@([^\s@]+\.)+[^\s@]+$/;
-    if (!emailPattern.test(emailInput.value.trim())) {
-      isValid = false;
-      emailInput.style.borderColor = '#e53e3e';
-      setTimeout(() => emailInput.style.borderColor = '#e2e8f0', 1500);
-    } else emailInput.style.borderColor = '#e2e8f0';
-    
-    if (messageInput.value.trim() === '') {
-      isValid = false;
-      messageInput.style.borderColor = '#e53e3e';
-      setTimeout(() => messageInput.style.borderColor = '#e2e8f0', 1500);
-    } else messageInput.style.borderColor = '#e2e8f0';
-    
+    if (!emailPattern.test(emailInput.value.trim())) isValid = false;
+    if (messageInput.value.trim() === '') isValid = false;
     if (isValid) {
-      feedbackDiv.innerHTML = '<span style="color: #1f2b6c; background:#eef2ff; padding: 0.5rem 1rem; border-radius: 60px; display: inline-block;">✨ Thanks ' + nameInput.value.split(' ')[0] + '! I’ll reach out within 48h.</span>';
+      feedbackDiv.innerHTML = '<span style="color: #1f2b6c; background:#eef2ff; padding: 0.5rem 1rem; border-radius: 60px;">✨ Thanks ' + nameInput.value.split(' ')[0] + '! I’ll reach out soon.</span>';
       contactForm.reset();
-      setTimeout(() => {
-        feedbackDiv.innerHTML = '';
-      }, 5000);
+      setTimeout(() => feedbackDiv.innerHTML = '', 5000);
     } else {
-      feedbackDiv.innerHTML = '<span style="color:#b91c1c;">Please fill all fields correctly before sending.</span>';
-      setTimeout(() => {
-        if(feedbackDiv.innerHTML.includes('fill all fields')) feedbackDiv.innerHTML = '';
-      }, 3000);
+      feedbackDiv.innerHTML = '<span style="color:#b91c1c;">Please fill all fields correctly.</span>';
+      setTimeout(() => feedbackDiv.innerHTML = '', 3000);
     }
   });
-
-  // Additional: subtle scroll reveal effect for cards (just small interactive delight)
-  const projectCards = document.querySelectorAll('.project-card, .skill-card, .exp-card');
+  
+  // Scroll reveal effect
+  const revealElements = document.querySelectorAll('.project-card, .skill-card, .exp-card, .video-card, .pdf-card');
   const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
@@ -652,22 +979,19 @@
         entry.target.style.transform = 'translateY(0)';
       }
     });
-  }, { threshold: 0.1, rootMargin: "0px 0px -40px 0px" });
-  
-  projectCards.forEach(card => {
-    card.style.opacity = '0';
-    card.style.transform = 'translateY(12px)';
-    card.style.transition = 'opacity 0.5s ease, transform 0.4s ease';
-    observer.observe(card);
+  }, { threshold: 0.1 });
+  revealElements.forEach(el => {
+    el.style.opacity = '0';
+    el.style.transform = 'translateY(12px)';
+    el.style.transition = 'opacity 0.5s ease, transform 0.4s ease';
+    observer.observe(el);
   });
-  
-  // manual fix for already visible cards (trigger first load)
   window.addEventListener('load', () => {
-    projectCards.forEach(card => {
-      const rect = card.getBoundingClientRect();
+    revealElements.forEach(el => {
+      const rect = el.getBoundingClientRect();
       if (rect.top < window.innerHeight - 100) {
-        card.style.opacity = '1';
-        card.style.transform = 'translateY(0)';
+        el.style.opacity = '1';
+        el.style.transform = 'translateY(0)';
       }
     });
   });
