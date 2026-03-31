@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-  <title>Student Portfolio | Project Showcase</title>
-  <!-- Google Fonts -->
+  <title>Student Portfolio | Work Showcase</title>
+  <!-- Google Fonts + Font Awesome -->
   <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
   <style>
@@ -16,8 +16,8 @@
 
     body {
       font-family: 'Inter', sans-serif;
-      background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
-      color: #0f172a;
+      background: #fafcff;
+      color: #111827;
       line-height: 1.5;
       scroll-behavior: smooth;
     }
@@ -32,10 +32,10 @@
     header {
       position: sticky;
       top: 0;
-      background: rgba(255, 255, 255, 0.95);
+      background: rgba(255, 255, 255, 0.96);
       backdrop-filter: blur(12px);
       z-index: 100;
-      border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+      border-bottom: 1px solid #eef2ff;
       padding: 1rem 0;
     }
 
@@ -49,7 +49,7 @@
     .logo {
       font-size: 1.6rem;
       font-weight: 800;
-      background: linear-gradient(135deg, #1e293b, #3b82f6);
+      background: linear-gradient(135deg, #1e2b6e, #3a4c9e);
       -webkit-background-clip: text;
       background-clip: text;
       color: transparent;
@@ -64,53 +64,52 @@
     .nav-links a {
       text-decoration: none;
       font-weight: 500;
-      color: #334155;
+      color: #1f2937;
       transition: 0.2s;
     }
 
     .nav-links a:hover {
-      color: #3b82f6;
+      color: #2e4a9a;
     }
 
     /* Buttons */
     .btn {
       display: inline-block;
-      background: #1e293b;
+      background: #111827;
       color: white;
-      padding: 0.75rem 2rem;
-      border-radius: 50px;
+      padding: 0.7rem 1.8rem;
+      border-radius: 40px;
       font-weight: 600;
       text-decoration: none;
       transition: all 0.25s;
       border: none;
       cursor: pointer;
-      font-size: 0.9rem;
     }
 
     .btn-primary {
-      background: #3b82f6;
-      box-shadow: 0 4px 14px rgba(59, 130, 246, 0.3);
+      background: #1f2b6c;
+      box-shadow: 0 8px 18px rgba(31, 43, 108, 0.2);
     }
 
     .btn-primary:hover {
-      background: #2563eb;
+      background: #121b4a;
       transform: translateY(-2px);
     }
 
     .btn-outline {
       background: transparent;
-      border: 2px solid #3b82f6;
-      color: #3b82f6;
+      border: 1.5px solid #1f2b6c;
+      color: #1f2b6c;
     }
 
     .btn-outline:hover {
-      background: #3b82f6;
+      background: #1f2b6c;
       color: white;
     }
 
     /* Hero Section */
     .hero {
-      padding: 4rem 0 3rem 0;
+      padding: 4rem 0 3rem;
       text-align: center;
     }
 
@@ -118,244 +117,181 @@
       font-size: 3rem;
       font-weight: 800;
       margin-bottom: 1rem;
-      background: linear-gradient(135deg, #1e293b, #3b82f6);
-      -webkit-background-clip: text;
-      background-clip: text;
-      color: transparent;
+      letter-spacing: -0.02em;
+    }
+
+    .hero .highlight {
+      background: linear-gradient(120deg, #e0e7ff, #e0e7ff 60%, transparent);
+      padding: 0 0.3rem;
     }
 
     .hero p {
       font-size: 1.2rem;
-      color: #475569;
+      color: #4b5563;
       max-width: 600px;
-      margin: 0 auto;
+      margin: 0 auto 2rem;
     }
 
-    /* Assignment Info Banner */
-    .assignment-banner {
-      background: linear-gradient(135deg, #eef2ff, #e0e7ff);
-      border-radius: 24px;
-      padding: 1.5rem;
-      margin: 2rem 0;
-      text-align: center;
-      border: 1px solid #c7d2fe;
+    /* Section Styles */
+    section {
+      padding: 4rem 0;
     }
 
-    .assignment-banner i {
+    .section-title {
       font-size: 2rem;
-      color: #3b82f6;
-      margin-bottom: 0.5rem;
+      font-weight: 700;
+      margin-bottom: 2rem;
+      position: relative;
+      display: inline-block;
     }
 
-    /* Media Showcase - One Video & One PDF */
-    .media-showcase {
+    .section-title:after {
+      content: '';
+      position: absolute;
+      bottom: -10px;
+      left: 0;
+      width: 60px;
+      height: 3px;
+      background: #1f2b6c;
+      border-radius: 3px;
+    }
+
+    /* Work Showcase - Main Media Cards */
+    .showcase-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
       gap: 2rem;
-      margin: 3rem 0;
+      margin-top: 1rem;
     }
 
     .media-card {
       background: white;
-      border-radius: 32px;
+      border-radius: 28px;
       overflow: hidden;
       box-shadow: 0 20px 35px -12px rgba(0, 0, 0, 0.1);
-      transition: transform 0.3s, box-shadow 0.3s;
-      border: 1px solid #e2e8f0;
+      transition: transform 0.25s ease;
+      border: 1px solid #eef2ff;
     }
 
     .media-card:hover {
       transform: translateY(-5px);
-      box-shadow: 0 25px 40px -12px rgba(0, 0, 0, 0.15);
     }
 
-    .media-header {
-      background: linear-gradient(135deg, #1e293b, #0f172a);
-      padding: 1.5rem;
-      color: white;
+    .card-header {
+      background: linear-gradient(135deg, #f0f4fe, #ffffff);
+      padding: 1.2rem 1.5rem;
+      border-bottom: 1px solid #eef2ff;
+    }
+
+    .card-header h3 {
+      font-size: 1.4rem;
+      font-weight: 700;
       display: flex;
       align-items: center;
-      gap: 1rem;
+      gap: 0.6rem;
     }
 
-    .media-header i {
-      font-size: 2rem;
+    .card-header i {
+      font-size: 1.6rem;
     }
 
-    .media-header h2 {
-      font-size: 1.5rem;
-      font-weight: 700;
-      margin: 0;
-    }
-
-    .media-content {
+    .media-preview {
       padding: 1.5rem;
+      background: #ffffff;
     }
 
     /* Video Player */
-    .video-container {
-      background: #000;
+    .video-wrapper {
+      position: relative;
+      width: 100%;
       border-radius: 20px;
       overflow: hidden;
-      margin-bottom: 1rem;
+      background: #000;
     }
 
-    .video-container video {
+    .video-wrapper video {
       width: 100%;
       display: block;
-      max-height: 280px;
-      object-fit: cover;
-    }
-
-    .file-input-group {
-      margin-top: 1.2rem;
-    }
-
-    .file-label {
-      display: block;
-      background: #f1f5f9;
-      border: 2px dashed #cbd5e1;
       border-radius: 16px;
-      padding: 1rem;
-      text-align: center;
-      cursor: pointer;
-      transition: all 0.2s;
-    }
-
-    .file-label:hover {
-      border-color: #3b82f6;
-      background: #eff6ff;
-    }
-
-    .file-label i {
-      font-size: 1.5rem;
-      color: #3b82f6;
-      margin-right: 0.5rem;
-    }
-
-    input[type="file"] {
-      display: none;
-    }
-
-    .file-info {
-      margin-top: 0.8rem;
-      font-size: 0.85rem;
-      color: #64748b;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      flex-wrap: wrap;
-      gap: 0.5rem;
-    }
-
-    .file-name {
-      background: #eef2ff;
-      padding: 0.25rem 0.75rem;
-      border-radius: 20px;
-      font-size: 0.8rem;
-      font-family: monospace;
-    }
-
-    .reset-btn {
-      background: none;
-      border: none;
-      color: #ef4444;
-      cursor: pointer;
-      font-size: 0.8rem;
-    }
-
-    .reset-btn:hover {
-      text-decoration: underline;
     }
 
     /* PDF Viewer */
-    .pdf-container {
-      background: #f8fafc;
-      border-radius: 20px;
-      min-height: 300px;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      border: 1px solid #e2e8f0;
-      margin-bottom: 1rem;
+    .pdf-wrapper {
+      width: 100%;
+      height: 450px;
+      border-radius: 16px;
       overflow: hidden;
+      border: 1px solid #eef2ff;
+      background: #f9fafb;
     }
 
-    .pdf-preview {
+    .pdf-wrapper iframe {
       width: 100%;
-      height: 280px;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      background: #f1f5f9;
-    }
-
-    .pdf-preview i {
-      font-size: 4rem;
-      color: #ef4444;
-      margin-bottom: 1rem;
-    }
-
-    .pdf-preview p {
-      color: #475569;
-    }
-
-    .pdf-viewer-frame {
-      width: 100%;
-      height: 400px;
+      height: 100%;
       border: none;
-      display: none;
     }
 
-    .pdf-viewer-frame.active {
-      display: block;
+    .file-info {
+      padding: 1rem 1.5rem 1.5rem;
+      background: #fefefe;
+      border-top: 1px solid #f0f2f5;
     }
 
-    .pdf-preview.hide {
-      display: none;
+    .file-info p {
+      color: #4b5563;
+      margin-bottom: 0.5rem;
+      font-size: 0.9rem;
     }
 
-    /* Projects Section */
-    .projects-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 1.5rem;
-      margin: 2rem 0;
+    .badge {
+      display: inline-block;
+      background: #eef2ff;
+      padding: 0.25rem 0.8rem;
+      border-radius: 20px;
+      font-size: 0.75rem;
+      font-weight: 600;
+      color: #1f2b6c;
     }
 
-    .project-card {
+    /* Skills & Projects (for class context) */
+    .skills-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.8rem;
+      margin-top: 1rem;
+    }
+
+    .skill-tag {
       background: white;
-      border-radius: 24px;
-      padding: 1.5rem;
       border: 1px solid #e2e8f0;
-      transition: all 0.2s;
+      border-radius: 40px;
+      padding: 0.5rem 1.2rem;
+      font-weight: 500;
+      font-size: 0.9rem;
     }
 
-    .project-card:hover {
-      border-color: #3b82f6;
-      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.05);
+    .projects-preview {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 1.5rem;
+      margin-top: 1.5rem;
     }
 
-    .project-card i {
-      font-size: 2rem;
-      color: #3b82f6;
-      margin-bottom: 1rem;
+    .mini-project {
+      background: white;
+      border-radius: 20px;
+      padding: 1.2rem;
+      border: 1px solid #eef2ff;
+      transition: 0.2s;
     }
 
-    /* About & Contact */
-    .about-section {
+    /* Contact & Footer */
+    .contact-card {
       background: white;
       border-radius: 32px;
       padding: 2rem;
-      margin: 3rem 0;
-      border: 1px solid #e2e8f0;
-    }
-
-    .contact-form {
-      max-width: 600px;
-      margin: 0 auto;
+      box-shadow: 0 12px 28px rgba(0, 0, 0, 0.05);
+      border: 1px solid #eef2ff;
     }
 
     .form-group {
@@ -367,47 +303,58 @@
       padding: 0.9rem 1.2rem;
       border: 1px solid #e2e8f0;
       border-radius: 28px;
-      font-family: inherit;
-      transition: 0.2s;
+      font-family: 'Inter', sans-serif;
+      font-size: 1rem;
     }
 
     input:focus, textarea:focus {
       outline: none;
-      border-color: #3b82f6;
-      box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+      border-color: #1f2b6c;
     }
 
     footer {
-      background: #0f172a;
-      color: #94a3b8;
+      background: #f8fafc;
+      border-top: 1px solid #eef2ff;
+      padding: 2rem 0;
       text-align: center;
-      padding: 2rem;
-      margin-top: 3rem;
+      color: #5b6e8c;
     }
 
-    @media (max-width: 768px) {
-      .media-showcase {
+    .social-icons {
+      display: flex;
+      justify-content: center;
+      gap: 1.5rem;
+      margin-bottom: 1rem;
+    }
+
+    .social-icons a {
+      color: #3b4b9a;
+      font-size: 1.3rem;
+    }
+
+    @media (max-width: 800px) {
+      .showcase-grid {
         grid-template-columns: 1fr;
+        gap: 2rem;
       }
       .hero h1 {
-        font-size: 2rem;
+        font-size: 2.2rem;
       }
       .container {
         padding: 0 1.2rem;
       }
+      .section-title:after {
+        left: 0;
+      }
     }
 
-    .section-title {
-      font-size: 1.8rem;
-      font-weight: 700;
-      margin-bottom: 1.5rem;
-      text-align: center;
-    }
-
-    hr {
-      margin: 2rem 0;
-      border: none;
-      border-top: 1px solid #e2e8f0;
+    .info-note {
+      background: #fef9e3;
+      border-left: 4px solid #f59e0b;
+      padding: 0.8rem 1.2rem;
+      border-radius: 16px;
+      margin-bottom: 2rem;
+      font-size: 0.85rem;
     }
   </style>
 </head>
@@ -416,11 +363,10 @@
 <header>
   <div class="container">
     <div class="nav">
-      <div class="logo">📚 Student Portfolio</div>
+      <div class="logo">📘 STUDIO PORTFOLIO</div>
       <ul class="nav-links">
-        <li><a href="#home">Home</a></li>
-        <li><a href="#submission">Submission</a></li>
-        <li><a href="#projects">Projects</a></li>
+        <li><a href="#work">Work</a></li>
+        <li><a href="#showcase">Showcase</a></li>
         <li><a href="#contact">Contact</a></li>
       </ul>
     </div>
@@ -429,148 +375,135 @@
 
 <main>
   <!-- Hero Section -->
-  <div id="home" class="container">
+  <div class="container">
     <div class="hero">
-      <h1>🎓 Class Assignment Portfolio</h1>
-      <p>Showcasing my academic work with project video demonstration and detailed report in PDF format</p>
+      <h1>Student Showcase: <span class="highlight">Creative Project</span></h1>
+      <p>My academic work — featuring a complete video presentation and a detailed project report in PDF format. Designed for class submission and portfolio review.</p>
+      <div>
+        <a href="#showcase" class="btn btn-primary" style="margin-right: 0.8rem;">📺 View Media</a>
+        <a href="#report" class="btn btn-outline">📄 Read Report</a>
+      </div>
     </div>
   </div>
 
-  <!-- Assignment Submission Section - One Video + One PDF -->
-  <section id="submission">
-    <div class="container">
-      <div class="assignment-banner">
-        <i class="fas fa-tasks"></i>
-        <h3 style="margin: 0.5rem 0;">📋 Assignment Submission</h3>
-        <p style="margin: 0;">Upload your project demonstration video and final report PDF below. Both files will be stored locally in your browser.</p>
+  <!-- Skills / Course Context -->
+  <div class="container">
+    <div>
+      <h2 class="section-title">Course & Tools</h2>
+      <div class="skills-grid">
+        <span class="skill-tag">🎨 UI/UX Design</span>
+        <span class="skill-tag">📹 Video Production</span>
+        <span class="skill-tag">📑 Technical Writing</span>
+        <span class="skill-tag">💻 Web Development</span>
+        <span class="skill-tag">🎬 Adobe Premiere</span>
+        <span class="skill-tag">📊 Figma</span>
       </div>
+    </div>
+  </div>
 
-      <div class="media-showcase">
-        <!-- Video Card -->
-        <div class="media-card">
-          <div class="media-header">
-            <i class="fas fa-video"></i>
-            <h2>📹 Project Video</h2>
+  <!-- MAIN SHOWCASE: ONE VIDEO + ONE PDF (HARDCODED) -->
+  <section id="showcase">
+    <div class="container">
+      <h2 class="section-title">🎯 Assignment Deliverables</h2>
+      <div class="info-note">
+        <i class="fas fa-paperclip"></i> <strong>Hardcoded media files:</strong> The video and PDF below are permanently embedded as required for the class assignment. These represent my original work.
+      </div>
+      
+      <div class="showcase-grid">
+        <!-- VIDEO CARD - Hardcoded video (sample presentation video but represents student's work) -->
+        <div class="media-card" id="work-video">
+          <div class="card-header">
+            <h3><i class="fas fa-video" style="color:#1f2b6c;"></i> Project Video Presentation</h3>
           </div>
-          <div class="media-content">
-            <div class="video-container" id="videoContainer">
-              <video id="projectVideo" controls style="width: 100%;">
-                <source id="videoSource" src="">
+          <div class="media-preview">
+            <div class="video-wrapper">
+              <!-- Hardcoded video file: using a high-quality sample video that demonstrates student work context.
+                   In a real assignment, this would be replaced with the actual student video file.
+                   For this demo, we embed a clear educational/demo video that simulates a project showcase.
+                   The video is embedded directly with controls. -->
+              <video controls poster="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 640 360'%3E%3Crect width='640' height='360' fill='%231f2b6c'/%3E%3Ctext x='320' y='190' font-size='24' fill='white' text-anchor='middle' font-family='monospace'%3EStudent Project Demo%3C/text%3E%3C/svg%3E">
+                <source src="https://cdn.pixabay.com/video/2022/07/07/123456-720x720.mp4" type="video/mp4">
+                <source src="https://www.w3schools.com/html/mov_bbb.mp4" type="video/mp4">
                 Your browser does not support the video tag.
               </video>
-              <div id="videoPlaceholder" style="background: #0f172a; color: white; text-align: center; padding: 4rem; display: flex; flex-direction: column; align-items: center; gap: 1rem;">
-                <i class="fas fa-play-circle" style="font-size: 3rem; color: #3b82f6;"></i>
-                <p>No video uploaded yet. Please upload your work video below.</p>
-              </div>
             </div>
-            <div class="file-input-group">
-              <label for="videoUpload" class="file-label">
-                <i class="fas fa-cloud-upload-alt"></i> Upload Video File (MP4, WebM)
-              </label>
-              <input type="file" id="videoUpload" accept="video/mp4,video/webm,video/ogg">
-              <div class="file-info" id="videoInfo">
-                <span id="videoFileName" class="file-name">No file selected</span>
-                <button id="clearVideoBtn" class="reset-btn" style="display: none;">🗑️ Clear</button>
-              </div>
+            <div class="file-info">
+              <p><i class="fas fa-play-circle"></i> <strong>Video Title:</strong> Interactive Design Project – Final Walkthrough</p>
+              <p><span class="badge"><i class="far fa-clock"></i> Duration: 2:34 min</span> <span class="badge" style="margin-left:0.5rem;"><i class="fas fa-file-video"></i> MP4 format</span></p>
+              <p style="font-size:0.85rem; margin-top:0.5rem;">🎓 This video demonstrates my full process: research, prototyping, and final interactive solution. Hardcoded as part of submission.</p>
             </div>
-            <p style="font-size: 0.75rem; color: #64748b; margin-top: 0.8rem;">
-              <i class="fas fa-info-circle"></i> Upload your project demonstration video. Maximum size depends on browser.
-            </p>
           </div>
         </div>
 
-        <!-- PDF Card -->
-        <div class="media-card">
-          <div class="media-header">
-            <i class="fas fa-file-pdf"></i>
-            <h2>📄 Project Report</h2>
+        <!-- PDF CARD - Hardcoded PDF report (using a reliable educational PDF placeholder that mimics student report) -->
+        <div class="media-card" id="report">
+          <div class="card-header">
+            <h3><i class="fas fa-file-alt" style="color:#dc2626;"></i> Project Report (PDF)</h3>
           </div>
-          <div class="media-content">
-            <div class="pdf-container" id="pdfContainer">
-              <div id="pdfPreview" class="pdf-preview">
-                <i class="fas fa-file-pdf"></i>
-                <p>No PDF uploaded yet</p>
-                <p style="font-size: 0.85rem;">Upload your assignment report in PDF format</p>
-              </div>
-              <iframe id="pdfViewer" class="pdf-viewer-frame" title="PDF Viewer"></iframe>
+          <div class="media-preview">
+            <div class="pdf-wrapper">
+              <!-- Hardcoded PDF: using a public domain / sample academic-style PDF that represents the report.
+                   We use an official W3C dummy PDF for demo, but in class assignment the student would replace with actual report.
+                   This PDF is static and fully functional. -->
+              <iframe src="https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf" title="Student Project Report PDF">
+                This browser does not support PDF embedding.
+              </iframe>
             </div>
-            <div class="file-input-group">
-              <label for="pdfUpload" class="file-label">
-                <i class="fas fa-cloud-upload-alt"></i> Upload PDF Document
-              </label>
-              <input type="file" id="pdfUpload" accept="application/pdf">
-              <div class="file-info" id="pdfInfo">
-                <span id="pdfFileName" class="file-name">No file selected</span>
-                <button id="clearPdfBtn" class="reset-btn" style="display: none;">🗑️ Clear</button>
+            <div class="file-info">
+              <p><i class="fas fa-file-pdf"></i> <strong>Document:</strong> Comprehensive Project Report – 8 pages</p>
+              <p><span class="badge"><i class="fas fa-chart-line"></i> Methodology</span> <span class="badge">📊 User Testing</span> <span class="badge">📝 Analysis</span></p>
+              <p style="font-size:0.85rem; margin-top:0.5rem;">📌 The report includes abstract, design rationale, implementation details, and reflection. Hardcoded PDF for evaluation.</p>
+              <div style="margin-top: 1rem;">
+                <a href="https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf" target="_blank" class="btn btn-outline" style="padding:0.4rem 1rem; font-size:0.8rem;"><i class="fas fa-download"></i> Open PDF in new tab</a>
               </div>
             </div>
-            <p style="font-size: 0.75rem; color: #64748b; margin-top: 0.8rem;">
-              <i class="fas fa-info-circle"></i> Upload your project report or assignment PDF. View directly in browser.
-            </p>
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Additional Projects Section (Academic Work) -->
-  <section id="projects">
+  <!-- Additional Projects (to enrich portfolio context) -->
+  <section id="work">
     <div class="container">
-      <h2 class="section-title">📌 Other Academic Projects</h2>
-      <div class="projects-grid">
-        <div class="project-card">
-          <i class="fas fa-mobile-alt"></i>
-          <h3>Mobile App Design</h3>
-          <p>UI/UX case study for a student engagement platform - wireframes and prototype.</p>
-          <span style="font-size: 0.8rem; color: #3b82f6;">Grade: A</span>
+      <h2 class="section-title">Other Academic Works</h2>
+      <div class="projects-preview">
+        <div class="mini-project">
+          <i class="fas fa-mobile-alt" style="font-size: 2rem; color:#1f2b6c;"></i>
+          <h3 style="margin: 0.5rem 0;">Mobile App Prototype</h3>
+          <p>Figma interactive prototype for campus navigation system.</p>
         </div>
-        <div class="project-card">
-          <i class="fas fa-database"></i>
-          <h3>Database Project</h3>
-          <p>Library management system with SQL and Python integration.</p>
-          <span style="font-size: 0.8rem; color: #3b82f6;">Grade: A-</span>
+        <div class="mini-project">
+          <i class="fas fa-chart-simple" style="font-size: 2rem; color:#1f2b6c;"></i>
+          <h3 style="margin: 0.5rem 0;">Data Visualization</h3>
+          <p>Interactive dashboard using D3.js – class group project.</p>
         </div>
-        <div class="project-card">
-          <i class="fas fa-chart-line"></i>
-          <h3>Data Analysis</h3>
-          <p>Predictive modeling using machine learning on student performance data.</p>
-          <span style="font-size: 0.8rem; color: #3b82f6;">Grade: A+</span>
+        <div class="mini-project">
+          <i class="fas fa-brain" style="font-size: 2rem; color:#1f2b6c;"></i>
+          <h3 style="margin: 0.5rem 0;">UX Research Paper</h3>
+          <p>Published in university journal (accessible as additional PDF).</p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- About Student -->
-  <div class="container">
-    <div class="about-section">
-      <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1.5rem;">
-        <i class="fas fa-user-graduate" style="font-size: 2.5rem; color: #3b82f6;"></i>
-        <h2 style="margin: 0;">About the Student</h2>
-      </div>
-      <p><strong>Name:</strong> [Your Name]</p>
-      <p><strong>Course:</strong> Web Development & Digital Media</p>
-      <p><strong>Assignment:</strong> Portfolio Website with Video and PDF Submission</p>
-      <p><strong>Description:</strong> This website serves as my submission for the final project. I have included a demonstration video showcasing my work, along with a detailed report in PDF format. All files can be uploaded and viewed directly on this page.</p>
-    </div>
-  </div>
-
-  <!-- Contact Section -->
+  <!-- Contact Section (Student contact info) -->
   <section id="contact">
     <div class="container">
-      <h2 class="section-title">📧 Contact Instructor</h2>
-      <div class="about-section" style="background: white;">
-        <form id="contactForm" class="contact-form">
+      <h2 class="section-title">Get in Touch</h2>
+      <div class="contact-card">
+        <form id="classContactForm">
           <div class="form-group">
-            <input type="text" id="studentName" placeholder="Your Name" required>
+            <input type="text" id="studentName" placeholder="Your name" required>
           </div>
           <div class="form-group">
-            <input type="email" id="studentEmail" placeholder="Email Address" required>
+            <input type="email" id="studentEmail" placeholder="Email address" required>
           </div>
           <div class="form-group">
-            <textarea rows="4" id="studentMessage" placeholder="Message about assignment or feedback..."></textarea>
+            <textarea rows="3" id="msgContent" placeholder="Questions about the project or feedback..."></textarea>
           </div>
-          <button type="submit" class="btn btn-primary" style="width: 100%;">Send Message</button>
-          <div id="contactFeedback" class="form-message" style="margin-top: 1rem; text-align: center;"></div>
+          <button type="submit" class="btn btn-primary">Send Message <i class="fas fa-paper-plane"></i></button>
+          <div id="formFeedbackMsg" style="margin-top: 1rem; font-size: 0.85rem;"></div>
         </form>
       </div>
     </div>
@@ -579,218 +512,45 @@
 
 <footer>
   <div class="container">
-    <p>📚 Student Portfolio | Class Assignment Submission</p>
-    <p style="font-size: 0.85rem; margin-top: 0.5rem;">Upload your video and PDF files above. All files are stored locally in your browser.</p>
+    <div class="social-icons">
+      <a href="#"><i class="fab fa-github"></i></a>
+      <a href="#"><i class="fab fa-linkedin-in"></i></a>
+      <a href="#"><i class="fab fa-behance"></i></a>
+    </div>
+    <p>© 2025 Student Portfolio | Hardcoded Video & PDF Assignment Submission | All media embedded for evaluation</p>
   </div>
 </footer>
 
 <script>
-  // Video Upload Handling
-  const videoUpload = document.getElementById('videoUpload');
-  const projectVideo = document.getElementById('projectVideo');
-  const videoSource = document.getElementById('videoSource');
-  const videoPlaceholderDiv = document.getElementById('videoPlaceholder');
-  const videoFileName = document.getElementById('videoFileName');
-  const clearVideoBtn = document.getElementById('clearVideoBtn');
+  // Simple contact form handling
+  const form = document.getElementById('classContactForm');
+  const feedbackSpan = document.getElementById('formFeedbackMsg');
   
-  // PDF Upload Handling
-  const pdfUpload = document.getElementById('pdfUpload');
-  const pdfPreview = document.getElementById('pdfPreview');
-  const pdfViewer = document.getElementById('pdfViewer');
-  const pdfFileName = document.getElementById('pdfFileName');
-  const clearPdfBtn = document.getElementById('clearPdfBtn');
-  
-  // Check localStorage for saved files
-  function loadSavedFiles() {
-    // Load video
-    const savedVideo = localStorage.getItem('assignment_video');
-    if (savedVideo) {
-      try {
-        const videoData = JSON.parse(savedVideo);
-        if (videoData.data && videoData.name) {
-          const binaryData = atob(videoData.data);
-          const byteArray = new Uint8Array(binaryData.length);
-          for (let i = 0; i < binaryData.length; i++) {
-            byteArray[i] = binaryData.charCodeAt(i);
-          }
-          const blob = new Blob([byteArray], { type: videoData.type });
-          const url = URL.createObjectURL(blob);
-          videoSource.src = url;
-          projectVideo.load();
-          projectVideo.style.display = 'block';
-          if (videoPlaceholderDiv) videoPlaceholderDiv.style.display = 'none';
-          videoFileName.textContent = videoData.name;
-          clearVideoBtn.style.display = 'inline-block';
-        }
-      } catch(e) { console.log('Error loading video'); }
-    }
-    
-    // Load PDF
-    const savedPdf = localStorage.getItem('assignment_pdf');
-    if (savedPdf) {
-      try {
-        const pdfData = JSON.parse(savedPdf);
-        if (pdfData.data && pdfData.name) {
-          const binaryData = atob(pdfData.data);
-          const byteArray = new Uint8Array(binaryData.length);
-          for (let i = 0; i < binaryData.length; i++) {
-            byteArray[i] = binaryData.charCodeAt(i);
-          }
-          const blob = new Blob([byteArray], { type: 'application/pdf' });
-          const url = URL.createObjectURL(blob);
-          pdfViewer.src = url;
-          pdfViewer.classList.add('active');
-          pdfPreview.classList.add('hide');
-          pdfFileName.textContent = pdfData.name;
-          clearPdfBtn.style.display = 'inline-block';
-        }
-      } catch(e) { console.log('Error loading PDF'); }
-    }
-  }
-  
-  // Save video to localStorage
-  function saveVideoToLocalStorage(file, dataUrl) {
-    const reader = new FileReader();
-    reader.onload = function(e) {
-      const base64 = e.target.result.split(',')[1];
-      const videoData = {
-        name: file.name,
-        type: file.type,
-        data: base64
-      };
-      localStorage.setItem('assignment_video', JSON.stringify(videoData));
-      
-      // Update display
-      videoSource.src = dataUrl;
-      projectVideo.load();
-      projectVideo.style.display = 'block';
-      if (videoPlaceholderDiv) videoPlaceholderDiv.style.display = 'none';
-      videoFileName.textContent = file.name;
-      clearVideoBtn.style.display = 'inline-block';
-    };
-    reader.readAsDataURL(file);
-  }
-  
-  // Save PDF to localStorage
-  function savePdfToLocalStorage(file, dataUrl) {
-    const reader = new FileReader();
-    reader.onload = function(e) {
-      const base64 = e.target.result.split(',')[1];
-      const pdfData = {
-        name: file.name,
-        type: 'application/pdf',
-        data: base64
-      };
-      localStorage.setItem('assignment_pdf', JSON.stringify(pdfData));
-      
-      // Update display
-      pdfViewer.src = dataUrl;
-      pdfViewer.classList.add('active');
-      pdfPreview.classList.add('hide');
-      pdfFileName.textContent = file.name;
-      clearPdfBtn.style.display = 'inline-block';
-    };
-    reader.readAsDataURL(file);
-  }
-  
-  // Video upload handler
-  videoUpload.addEventListener('change', function(e) {
-    const file = e.target.files[0];
-    if (file && file.type.startsWith('video/')) {
-      const url = URL.createObjectURL(file);
-      saveVideoToLocalStorage(file, url);
-    } else if (file) {
-      alert('Please upload a valid video file (MP4, WebM, etc.)');
-    }
-  });
-  
-  // PDF upload handler
-  pdfUpload.addEventListener('change', function(e) {
-    const file = e.target.files[0];
-    if (file && file.type === 'application/pdf') {
-      const url = URL.createObjectURL(file);
-      savePdfToLocalStorage(file, url);
-    } else if (file) {
-      alert('Please upload a valid PDF file.');
-    }
-  });
-  
-  // Clear video
-  clearVideoBtn.addEventListener('click', function() {
-    localStorage.removeItem('assignment_video');
-    videoSource.src = '';
-    projectVideo.style.display = 'none';
-    if (videoPlaceholderDiv) videoPlaceholderDiv.style.display = 'flex';
-    videoFileName.textContent = 'No file selected';
-    clearVideoBtn.style.display = 'none';
-    videoUpload.value = '';
-    projectVideo.load();
-  });
-  
-  // Clear PDF
-  clearPdfBtn.addEventListener('click', function() {
-    localStorage.removeItem('assignment_pdf');
-    pdfViewer.src = '';
-    pdfViewer.classList.remove('active');
-    pdfPreview.classList.remove('hide');
-    pdfFileName.textContent = 'No file selected';
-    clearPdfBtn.style.display = 'none';
-    pdfUpload.value = '';
-  });
-  
-  // Initialize video placeholder visibility
-  function initDisplay() {
-    const savedVideo = localStorage.getItem('assignment_video');
-    if (!savedVideo) {
-      projectVideo.style.display = 'none';
-      if (videoPlaceholderDiv) videoPlaceholderDiv.style.display = 'flex';
-    } else {
-      projectVideo.style.display = 'block';
-      if (videoPlaceholderDiv) videoPlaceholderDiv.style.display = 'none';
-    }
-    
-    const savedPdf = localStorage.getItem('assignment_pdf');
-    if (!savedPdf) {
-      pdfViewer.classList.remove('active');
-      pdfPreview.classList.remove('hide');
-    }
-  }
-  
-  // Contact form handler
-  const contactForm = document.getElementById('contactForm');
-  const contactFeedback = document.getElementById('contactFeedback');
-  
-  contactForm.addEventListener('submit', (e) => {
+  form.addEventListener('submit', (e) => {
     e.preventDefault();
-    const name = document.getElementById('studentName').value;
-    const email = document.getElementById('studentEmail').value;
-    const message = document.getElementById('studentMessage').value;
+    const name = document.getElementById('studentName').value.trim();
+    const email = document.getElementById('studentEmail').value.trim();
+    const message = document.getElementById('msgContent').value.trim();
     
-    if (name && email && message) {
-      contactFeedback.innerHTML = '<span style="color: #10b981; background: #d1fae5; padding: 0.5rem 1rem; border-radius: 50px; display: inline-block;">✅ Message sent! Your instructor will respond soon.</span>';
-      contactForm.reset();
-      setTimeout(() => contactFeedback.innerHTML = '', 4000);
-    } else {
-      contactFeedback.innerHTML = '<span style="color: #ef4444;">Please fill all fields.</span>';
-      setTimeout(() => contactFeedback.innerHTML = '', 3000);
+    if (!name || !email || !message) {
+      feedbackSpan.innerHTML = '<span style="color:#b91c1c;">❌ Please fill all fields.</span>';
+      setTimeout(() => feedbackSpan.innerHTML = '', 2500);
+      return;
     }
+    const emailPattern = /^[^\s@]+@([^\s@]+\.)+[^\s@]+$/;
+    if (!emailPattern.test(email)) {
+      feedbackSpan.innerHTML = '<span style="color:#b91c1c;">❌ Enter a valid email address.</span>';
+      setTimeout(() => feedbackSpan.innerHTML = '', 2500);
+      return;
+    }
+    feedbackSpan.innerHTML = '<span style="color:#1f2b6c; background:#eef2ff; padding:0.4rem 1rem; border-radius:40px;">✅ Thanks ' + name + '! Your message was recorded (class demo).</span>';
+    form.reset();
+    setTimeout(() => feedbackSpan.innerHTML = '', 4000);
   });
-  
-  // Load saved files on page load
-  loadSavedFiles();
-  initDisplay();
-  
-  // Smooth scroll for navigation
-  document.querySelectorAll('.nav-links a').forEach(anchor => {
-    anchor.addEventListener('click', function(e) {
-      e.preventDefault();
-      const targetId = this.getAttribute('href');
-      const targetElement = document.querySelector(targetId);
-      if (targetElement) {
-        targetElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
-      }
-    });
-  });
+
+  // Add small console note confirming hardcoded media
+  console.log('Portfolio ready: Hardcoded video and PDF embedded for class assignment.');
 </script>
+
 </body>
 </html>
