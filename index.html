@@ -2,10 +2,11 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-  <title>Alex Morgan | Creative Portfolio</title>
-  <!-- Google Fonts + Smooth Behavior -->
-  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+  <title>Portfolio Hub | Video & Report Showcase</title>
+  <!-- Google Fonts for clean typography -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,600;14..32,700&display=swap" rel="stylesheet">
+  <!-- Font Awesome 6 (free icons) -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
   <style>
     * {
@@ -15,956 +16,615 @@
     }
 
     body {
+      background: linear-gradient(145deg, #f8fafc 0%, #eef2f5 100%);
       font-family: 'Inter', sans-serif;
-      background-color: #fbfcff;
-      color: #111827;
-      line-height: 1.5;
-      scroll-behavior: smooth;
+      color: #0a1c2f;
+      padding: 2rem 1.5rem;
+      line-height: 1.4;
     }
 
     .container {
-      max-width: 1200px;
+      max-width: 1280px;
       margin: 0 auto;
-      padding: 0 2rem;
     }
 
-    /* Header / Navigation */
-    header {
-      position: sticky;
-      top: 0;
-      background: rgba(251, 252, 255, 0.92);
-      backdrop-filter: blur(12px);
-      z-index: 100;
-      border-bottom: 1px solid rgba(0, 0, 0, 0.05);
-      padding: 1rem 0;
+    /* header & hero */
+    .hero {
+      text-align: center;
+      margin-bottom: 3rem;
     }
 
-    .nav {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      flex-wrap: wrap;
-    }
-
-    .logo {
-      font-size: 1.7rem;
-      font-weight: 800;
-      background: linear-gradient(135deg, #1F2B6C, #3B4B9A);
-      -webkit-background-clip: text;
+    .hero h1 {
+      font-size: 2.7rem;
+      font-weight: 700;
+      background: linear-gradient(135deg, #1e3c72, #2b4c7c);
       background-clip: text;
+      -webkit-background-clip: text;
       color: transparent;
       letter-spacing: -0.02em;
-    }
-
-    .nav-links {
-      display: flex;
-      gap: 2.2rem;
-      list-style: none;
-    }
-
-    .nav-links a {
-      text-decoration: none;
-      font-weight: 500;
-      color: #1f2937;
-      transition: 0.2s ease;
-      font-size: 1rem;
-    }
-
-    .nav-links a:hover {
-      color: #2e4a9a;
-      transform: translateY(-1px);
-    }
-
-    /* Buttons */
-    .btn {
-      display: inline-block;
-      background: #111827;
-      color: white;
-      padding: 0.7rem 1.8rem;
-      border-radius: 40px;
-      font-weight: 600;
-      text-decoration: none;
-      transition: all 0.25s;
-      border: none;
-      cursor: pointer;
-      font-size: 0.9rem;
-    }
-
-    .btn-outline {
-      background: transparent;
-      border: 1.5px solid #111827;
-      color: #111827;
-    }
-
-    .btn-outline:hover {
-      background: #111827;
-      color: white;
-      transform: translateY(-2px);
-    }
-
-    .btn-primary {
-      background: #1f2b6c;
-      box-shadow: 0 8px 18px rgba(31, 43, 108, 0.2);
-    }
-
-    .btn-primary:hover {
-      background: #121b4a;
-      transform: translateY(-3px);
-    }
-
-    /* Hero Section */
-    .hero {
-      padding: 5rem 0 4rem 0;
-      display: flex;
-      flex-wrap: wrap;
-      align-items: center;
-      justify-content: space-between;
-      gap: 3rem;
-    }
-
-    .hero-content {
-      flex: 1.2;
-    }
-
-    .hero-badge {
-      font-size: 0.85rem;
-      text-transform: uppercase;
-      letter-spacing: 2px;
-      color: #2e4a9a;
-      font-weight: 600;
-      margin-bottom: 1rem;
-    }
-
-    .hero-content h1 {
-      font-size: 3.2rem;
-      font-weight: 800;
-      line-height: 1.2;
-      margin-bottom: 1.2rem;
-      letter-spacing: -0.02em;
-    }
-
-    .highlight {
-      background: linear-gradient(120deg, #e0e7ff 0%, #e0e7ff 40%, transparent 70%);
-      padding: 0 0.2rem;
-    }
-
-    .hero-desc {
-      font-size: 1.2rem;
-      color: #4b5563;
-      max-width: 520px;
-      margin-bottom: 2rem;
-    }
-
-    .hero-buttons {
-      display: flex;
-      gap: 1rem;
-      flex-wrap: wrap;
-    }
-
-    .hero-image {
-      flex: 0.9;
-      background: linear-gradient(145deg, #eef2ff, #ffffff);
-      border-radius: 48% 52% 70% 30% / 40% 45% 55% 60%;
-      padding: 1rem;
-      text-align: center;
-    }
-
-    .hero-image svg {
-      max-width: 100%;
-      width: 280px;
-      filter: drop-shadow(0 20px 25px -5px rgba(0, 0, 0, 0.1));
-    }
-
-    /* Section general */
-    section {
-      padding: 5rem 0;
-    }
-
-    .section-title {
-      font-size: 2.2rem;
-      font-weight: 700;
-      margin-bottom: 2.5rem;
-      letter-spacing: -0.01em;
-      position: relative;
       display: inline-block;
     }
 
-    .section-title:after {
-      content: '';
-      position: absolute;
-      bottom: -12px;
-      left: 0;
-      width: 60px;
-      height: 4px;
-      background: #1f2b6c;
-      border-radius: 4px;
-    }
-
-    /* Skills Grid */
-    .skills-grid {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 1rem;
-      margin-top: 1rem;
-    }
-
-    .skill-card {
-      background: white;
+    .hero .badge {
+      background: #d9e6f5;
+      color: #1e4a76;
       border-radius: 60px;
-      padding: 0.7rem 1.6rem;
-      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.03);
-      border: 1px solid #eef2ff;
-      font-weight: 500;
-      transition: all 0.2s;
+      padding: 0.3rem 1rem;
+      font-size: 0.85rem;
+      font-weight: 600;
+      display: inline-block;
+      margin-top: 0.8rem;
     }
 
-    .skill-card:hover {
-      border-color: #b9c8ff;
-      transform: translateY(-3px);
-      background: #fafcff;
+    .hero p {
+      max-width: 680px;
+      margin: 1rem auto 0;
+      color: #2c3e4e;
+      font-size: 1.1rem;
     }
 
-    /* Projects Grid */
-    .projects-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
-      gap: 2rem;
-      margin-top: 1rem;
-    }
-
-    .project-card {
-      background: white;
-      border-radius: 28px;
-      overflow: hidden;
-      transition: all 0.3s cubic-bezier(0.2, 0, 0, 1);
-      box-shadow: 0 12px 28px -8px rgba(0, 0, 0, 0.08);
-      border: 1px solid #eef2ff;
-    }
-
-    .project-card:hover {
-      transform: translateY(-8px);
-      box-shadow: 0 25px 35px -12px rgba(0, 0, 0, 0.12);
-    }
-
-    .project-img {
-      background: #eef2ff;
-      height: 200px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 3rem;
-      color: #1f2b6c;
-    }
-
-    .project-info {
-      padding: 1.5rem;
-    }
-
-    .project-info h3 {
-      font-size: 1.5rem;
-      margin-bottom: 0.5rem;
-      font-weight: 700;
-    }
-
-    .project-tags {
+    /* cards grid */
+    .dashboard {
       display: flex;
       flex-wrap: wrap;
-      gap: 0.5rem;
-      margin: 1rem 0;
+      gap: 2rem;
+      margin-bottom: 2.5rem;
     }
 
-    .tag {
-      background: #f0f4fe;
-      padding: 0.2rem 0.8rem;
-      border-radius: 20px;
-      font-size: 0.75rem;
-      font-weight: 600;
-      color: #1f2b6c;
+    .card {
+      flex: 1;
+      min-width: 280px;
+      background: rgba(255, 255, 255, 0.92);
+      backdrop-filter: blur(0px);
+      border-radius: 2rem;
+      box-shadow: 0 20px 35px -12px rgba(0, 0, 0, 0.08), 0 0 0 1px rgba(0, 0, 0, 0.02);
+      transition: transform 0.2s ease, box-shadow 0.2s;
+      overflow: hidden;
+      background: #ffffff;
     }
 
-    .project-link {
-      text-decoration: none;
-      font-weight: 600;
-      color: #1f2b6c;
-      display: inline-flex;
+    .card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 28px 38px -16px rgba(0, 0, 0, 0.15);
+    }
+
+    .card-header {
+      padding: 1.5rem 1.8rem 0.8rem;
+      border-bottom: 1px solid #e9edf2;
+      display: flex;
       align-items: center;
-      gap: 6px;
-      margin-top: 0.6rem;
-      transition: gap 0.2s;
-      cursor: pointer;
-    }
-
-    .project-link:hover {
       gap: 12px;
     }
 
-    /* Media Cards */
-    .media-showcase {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 2rem;
-      margin-top: 1rem;
+    .card-header i {
+      font-size: 2rem;
+      color: #2c6e9e;
     }
 
-    .media-card {
-      background: white;
-      border-radius: 28px;
-      overflow: hidden;
-      transition: all 0.3s ease;
-      box-shadow: 0 12px 28px -8px rgba(0, 0, 0, 0.08);
-      border: 1px solid #eef2ff;
+    .card-header h2 {
+      font-size: 1.7rem;
+      font-weight: 600;
+      letter-spacing: -0.3px;
+    }
+
+    .card-body {
+      padding: 1.5rem 1.8rem 2rem;
+    }
+
+    /* upload area */
+    .upload-area {
+      border: 2px dashed #cbdde9;
+      border-radius: 1.5rem;
+      padding: 1.5rem 1rem;
+      text-align: center;
+      background: #fafdff;
+      transition: background 0.2s, border-color 0.2s;
       cursor: pointer;
+      margin-bottom: 1.5rem;
     }
 
-    .media-card:hover {
-      transform: translateY(-8px);
-      box-shadow: 0 25px 35px -12px rgba(0, 0, 0, 0.15);
+    .upload-area:hover {
+      border-color: #3b82f6;
+      background: #f0f7ff;
     }
 
-    .media-preview {
-      height: 220px;
-      background: linear-gradient(135deg, #1f2b6c, #3b4b9a);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: white;
-      font-size: 4rem;
+    .upload-icon {
+      font-size: 2.5rem;
+      color: #5f8bb3;
+      margin-bottom: 0.6rem;
     }
 
-    .media-info {
-      padding: 1.5rem;
-    }
-
-    .media-info h3 {
-      font-size: 1.3rem;
-      font-weight: 700;
-      margin-bottom: 0.5rem;
-    }
-
-    .media-info p {
-      color: #6b7280;
-      margin-bottom: 1rem;
+    .upload-area p {
       font-size: 0.9rem;
+      color: #4a627a;
     }
 
-    .url-input-group {
-      margin-top: 1rem;
-      padding-top: 1rem;
-      border-top: 1px solid #eef2ff;
-    }
-
-    .url-label {
-      font-size: 0.75rem;
-      font-weight: 600;
-      color: #4b5563;
-      margin-bottom: 0.5rem;
-      display: block;
-    }
-
-    .url-field {
-      width: 100%;
-      padding: 0.6rem 1rem;
-      border: 1px solid #e2e8f0;
-      border-radius: 40px;
-      font-size: 0.85rem;
-      font-family: 'Inter', monospace;
-      background: #f9fafb;
-    }
-
-    .update-btn {
-      margin-top: 0.75rem;
-      background: #f0f4fe;
-      border: none;
-      padding: 0.4rem 1rem;
-      border-radius: 40px;
-      font-size: 0.75rem;
-      font-weight: 600;
-      color: #1f2b6c;
-      cursor: pointer;
-      transition: 0.2s;
-    }
-
-    .update-btn:hover {
-      background: #1f2b6c;
-      color: white;
-    }
-
-    /* Modal */
-    .modal {
+    .file-input-hidden {
       display: none;
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: rgba(0, 0, 0, 0.92);
-      z-index: 1000;
-      justify-content: center;
-      align-items: center;
-      backdrop-filter: blur(8px);
     }
 
-    .modal.active {
+    .preview-container {
+      margin-top: 1rem;
+      word-break: break-word;
+    }
+
+    .file-info {
+      background: #eef3fc;
+      padding: 0.7rem 1rem;
+      border-radius: 1.2rem;
       display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 0.9rem;
+      font-weight: 500;
+      margin-top: 1rem;
     }
 
-    .modal-content {
-      position: relative;
-      max-width: 90vw;
-      max-height: 90vh;
-      background: white;
-      border-radius: 28px;
-      overflow: auto;
-      box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+    .file-info i {
+      font-size: 1.2rem;
     }
 
-    .modal-video {
+    .btn-clear {
+      background: none;
+      border: none;
+      color: #8f9eb2;
+      margin-left: auto;
+      cursor: pointer;
+      font-size: 1rem;
+      transition: color 0.2s;
+    }
+
+    .btn-clear:hover {
+      color: #d9534f;
+    }
+
+    /* video player */
+    .video-preview {
+      margin-top: 1.2rem;
+      border-radius: 1.2rem;
+      overflow: hidden;
+      background: #000;
+      box-shadow: 0 6px 14px rgba(0,0,0,0.1);
+    }
+
+    video {
       width: 100%;
-      max-width: 1000px;
-      border-radius: 28px;
+      max-height: 260px;
       display: block;
     }
 
-    .modal-pdf {
-      width: 100%;
-      height: 85vh;
-      border: none;
-      background: white;
-      border-radius: 28px;
-    }
-
-    .modal-close {
-      position: absolute;
-      top: -45px;
-      right: 0;
-      background: white;
-      border: none;
-      font-size: 28px;
-      cursor: pointer;
-      width: 40px;
-      height: 40px;
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      transition: 0.2s;
-      color: #1f2937;
-    }
-
-    .modal-close:hover {
-      background: #1f2b6c;
-      color: white;
-      transform: scale(1.05);
-    }
-
-    /* About & Experience */
-    .about-wrapper {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 3rem;
-      align-items: center;
-    }
-
-    .about-text {
-      flex: 1.2;
-    }
-
-    .about-text p {
-      margin-bottom: 1.2rem;
-      color: #2d3a4b;
-    }
-
-    .exp-card {
-      background: white;
-      border-left: 4px solid #1f2b6c;
-      padding: 1.2rem 1.5rem;
-      margin-bottom: 1.5rem;
-      border-radius: 20px;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.02);
-      transition: 0.2s;
-    }
-
-    .exp-card h4 {
-      font-size: 1.2rem;
-      font-weight: 700;
-    }
-
-    .exp-date {
-      font-size: 0.8rem;
-      color: #5f6c84;
-      margin: 0.3rem 0 0.5rem;
-    }
-
-    /* Contact form */
-    .contact-container {
-      background: #ffffff;
-      border-radius: 36px;
-      padding: 2rem;
-      box-shadow: 0 20px 35px -10px rgba(0, 0, 0, 0.05);
-      border: 1px solid #eef2ff;
-    }
-
-    .form-group {
-      margin-bottom: 1.5rem;
-    }
-
-    input, textarea {
-      width: 100%;
-      padding: 1rem 1.2rem;
+    /* pdf viewer */
+    .pdf-preview {
+      margin-top: 1.2rem;
       border: 1px solid #e2e8f0;
-      border-radius: 32px;
-      font-family: 'Inter', sans-serif;
-      font-size: 1rem;
-      transition: 0.2s;
+      border-radius: 1.2rem;
+      overflow: hidden;
       background: #fefefe;
     }
 
-    input:focus, textarea:focus {
-      outline: none;
-      border-color: #1f2b6c;
-      box-shadow: 0 0 0 3px rgba(31, 43, 108, 0.1);
-    }
-
-    textarea {
-      border-radius: 28px;
-      resize: vertical;
-    }
-
-    .form-message {
-      margin-top: 1rem;
-      font-size: 0.9rem;
+    .pdf-placeholder {
+      background: #f1f5f9;
+      padding: 2rem;
+      text-align: center;
+      color: #3b6e9e;
       font-weight: 500;
     }
 
-    /* Footer */
-    footer {
-      background: #f8fafd;
-      border-top: 1px solid #eef2ff;
-      padding: 2rem 0;
-      text-align: center;
-      color: #4b5563;
+    iframe {
+      width: 100%;
+      height: 320px;
+      border: none;
     }
 
-    .social-links {
+    .status-message {
+      font-size: 0.8rem;
+      margin-top: 1rem;
+      color: #3c7e3c;
       display: flex;
-      justify-content: center;
-      gap: 1.8rem;
-      margin-bottom: 1.2rem;
+      align-items: center;
+      gap: 6px;
     }
 
-    .social-links a {
-      color: #2c3e66;
-      font-size: 1.5rem;
-      transition: 0.2s;
+    /* shared button styles */
+    .btn-secondary {
+      background: #eef2f8;
+      border: none;
+      padding: 0.5rem 1rem;
+      border-radius: 2rem;
+      font-weight: 500;
+      font-size: 0.8rem;
+      cursor: pointer;
+      transition: background 0.2s;
+      margin-top: 0.8rem;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      color: #2c5a7a;
     }
 
-    .social-links a:hover {
-      color: #0f1a3d;
-      transform: scale(1.1);
+    .btn-secondary:hover {
+      background: #e0e8f0;
     }
 
-    .config-note {
-      background: #fef9e3;
-      border-left: 3px solid #f59e0b;
-      padding: 0.8rem 1.2rem;
-      border-radius: 16px;
-      margin-bottom: 2rem;
+    /* footer / assignment info */
+    .info-footer {
+      background: #e4edf5;
+      border-radius: 1.5rem;
+      padding: 1.2rem 1.8rem;
+      margin-top: 2rem;
+      text-align: center;
       font-size: 0.85rem;
-      color: #92400e;
+      color: #2c4e6e;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      gap: 0.8rem;
     }
 
-    @media (max-width: 760px) {
-      .container {
-        padding: 0 1.5rem;
+    .info-footer a {
+      color: #1f6392;
+      text-decoration: none;
+      font-weight: 500;
+    }
+
+    hr {
+      margin: 1rem 0;
+      border-color: #dce5ec;
+    }
+
+    @media (max-width: 780px) {
+      body {
+        padding: 1rem;
       }
-      .hero {
-        flex-direction: column;
-        text-align: center;
+      .card-header h2 {
+        font-size: 1.4rem;
       }
-      .hero-buttons {
-        justify-content: center;
-      }
-      .hero-content h1 {
-        font-size: 2.4rem;
-      }
-      .nav-links {
-        gap: 1.2rem;
-      }
-      .section-title:after {
-        left: 50%;
-        transform: translateX(-50%);
-        width: 70px;
-      }
-      .section-title {
-        text-align: center;
-        display: block;
-      }
-      .modal-content {
-        max-width: 95vw;
+      .hero h1 {
+        font-size: 2rem;
       }
     }
   </style>
 </head>
 <body>
-
-<header>
-  <div class="container">
-    <div class="nav">
-      <div class="logo">AM STUDIO</div>
-      <ul class="nav-links">
-        <li><a href="#work">Work</a></li>
-        <li><a href="#media">Media</a></li>
-        <li><a href="#about">About</a></li>
-        <li><a href="#contact">Contact</a></li>
-      </ul>
-    </div>
+<div class="container">
+  <div class="hero">
+    <h1>📁 Class Assignment Hub</h1>
+    <div class="badge">✨ upload your work video + PDF report</div>
+    <p>Showcase your project with media preview & integrated report viewer.<br>All files stay in your browser — private, fast, and secure.</p>
   </div>
-</header>
 
-<main>
-  <!-- Hero Section -->
-  <div class="container">
-    <div class="hero">
-      <div class="hero-content">
-        <div class="hero-badge">✨ DIGITAL CREATOR</div>
-        <h1>Crafting bold <span class="highlight">digital experiences</span> & immersive design</h1>
-        <p class="hero-desc">I'm Alex Morgan — product designer & front-end architect. I turn complex ideas into elegant, human-friendly interfaces.</p>
-        <div class="hero-buttons">
-          <a href="#work" class="btn btn-primary">View projects <i class="fas fa-arrow-right"></i></a>
-          <a href="#media" class="btn btn-outline">Featured media <i class="fas fa-play"></i></a>
+  <div class="dashboard">
+    <!-- VIDEO CARD -->
+    <div class="card">
+      <div class="card-header">
+        <i class="fas fa-video"></i>
+        <h2>Work Video</h2>
+      </div>
+      <div class="card-body">
+        <div id="videoUploadArea" class="upload-area">
+          <div class="upload-icon"><i class="fas fa-cloud-upload-alt"></i></div>
+          <p><strong>Click to upload</strong> or drag & drop</p>
+          <small style="color:#5e7c97;">MP4, WebM, MOV (max 150MB)</small>
+          <input type="file" id="videoFileInput" accept="video/mp4,video/webm,video/quicktime" class="file-input-hidden">
         </div>
-      </div>
-      <div class="hero-image">
-        <svg viewBox="0 0 280 280" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <circle cx="140" cy="120" r="48" fill="#EFF4FF" stroke="#1F2B6C" stroke-width="3"/>
-          <path d="M100 180 L180 180 Q190 210 140 215 Q90 210 100 180Z" fill="#EFF4FF" stroke="#1F2B6C" stroke-width="2.5"/>
-          <circle cx="115" cy="110" r="5" fill="#1F2B6C"/>
-          <circle cx="165" cy="110" r="5" fill="#1F2B6C"/>
-          <path d="M125 135 Q140 148 155 135" stroke="#1F2B6C" stroke-width="3" stroke-linecap="round"/>
-          <path d="M200 70 L220 50 M210 80 L228 62" stroke="#3B4B9A" stroke-width="4" stroke-linecap="round"/>
-          <path d="M80 70 L60 50 M70 80 L52 62" stroke="#3B4B9A" stroke-width="4" stroke-linecap="round"/>
-          <rect x="130" y="30" width="20" height="20" rx="4" fill="#FFD966" stroke="#1F2B6C" stroke-width="1.5"/>
-        </svg>
+        <div id="videoPreviewContainer"></div>
+        <div id="videoStatus" class="status-message" style="display: none;"></div>
+        <button id="clearVideoBtn" class="btn-secondary" style="display: none;"><i class="fas fa-trash-alt"></i> Remove video</button>
       </div>
     </div>
-  </div>
 
-  <!-- Skills Section -->
-  <div class="container">
-    <div>
-      <h2 class="section-title">Tech & Tools</h2>
-      <div class="skills-grid">
-        <span class="skill-card">React.js</span>
-        <span class="skill-card">Next.js</span>
-        <span class="skill-card">Tailwind CSS</span>
-        <span class="skill-card">Figma</span>
-        <span class="skill-card">TypeScript</span>
-        <span class="skill-card">Node.js</span>
-        <span class="skill-card">GSAP</span>
-        <span class="skill-card">UI/UX Design</span>
-        <span class="skill-card">Python</span>
+    <!-- PDF REPORT CARD -->
+    <div class="card">
+      <div class="card-header">
+        <i class="fas fa-file-pdf"></i>
+        <h2>PDF Report</h2>
+      </div>
+      <div class="card-body">
+        <div id="pdfUploadArea" class="upload-area">
+          <div class="upload-icon"><i class="fas fa-file-upload"></i></div>
+          <p><strong>Upload report (PDF)</strong></p>
+          <small>Max 30MB, embed viewer included</small>
+          <input type="file" id="pdfFileInput" accept="application/pdf" class="file-input-hidden">
+        </div>
+        <div id="pdfPreviewContainer"></div>
+        <div id="pdfStatus" class="status-message" style="display: none;"></div>
+        <button id="clearPdfBtn" class="btn-secondary" style="display: none;"><i class="fas fa-trash-alt"></i> Remove PDF</button>
       </div>
     </div>
   </div>
 
-  <!-- Projects Section -->
-  <section id="work">
-    <div class="container">
-      <h2 class="section-title">Selected projects</h2>
-      <div class="projects-grid">
-        <div class="project-card">
-          <div class="project-img"><i class="fas fa-globe" style="font-size: 4rem;"></i></div>
-          <div class="project-info">
-            <h3>NovaBank</h3>
-            <p>Minimalist banking dashboard with real-time analytics & secure authentication.</p>
-            <div class="project-tags"><span class="tag">React</span><span class="tag">Tailwind</span><span class="tag">D3</span></div>
-          </div>
-        </div>
-        <div class="project-card">
-          <div class="project-img"><i class="fas fa-leaf" style="font-size: 4rem;"></i></div>
-          <div class="project-info">
-            <h3>EcoChain</h3>
-            <p>Sustainable supply chain tracker — interactive map, carbon footprint visualization.</p>
-            <div class="project-tags"><span class="tag">Next.js</span><span class="tag">Solidity</span><span class="tag">Mapbox</span></div>
-          </div>
-        </div>
-        <div class="project-card">
-          <div class="project-img"><i class="fas fa-palette" style="font-size: 4rem;"></i></div>
-          <div class="project-info">
-            <h3>Artelier</h3>
-            <p>Creative portfolio builder for visual artists — drag-n-drop editor.</p>
-            <div class="project-tags"><span class="tag">Vue</span><span class="tag">Node</span><span class="tag">MongoDB</span></div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Media Section: One Video + One PDF (self-linkable) -->
-  <section id="media">
-    <div class="container">
-      <h2 class="section-title">Featured Media</h2>
-      <div class="config-note">
-        <i class="fas fa-link"></i> <strong>Customize your content:</strong> Use the input fields below to add your own video URL (MP4) and PDF document link. Both will be viewable directly on this page.
-      </div>
-      <div class="media-showcase">
-        <!-- Video Card -->
-        <div class="media-card" id="videoCard">
-          <div class="media-preview">
-            <i class="fas fa-play-circle"></i>
-          </div>
-          <div class="media-info">
-            <h3>🎬 Featured Video</h3>
-            <p>Click to watch your custom video presentation, showreel, or project walkthrough.</p>
-            <div class="url-input-group">
-              <label class="url-label"><i class="fas fa-video"></i> Your Video URL (MP4):</label>
-              <input type="text" id="videoUrlInput" class="url-field" placeholder="https://example.com/your-video.mp4" value="https://www.w3schools.com/html/mov_bbb.mp4">
-              <button id="updateVideoBtn" class="update-btn"><i class="fas fa-save"></i> Set Video Link</button>
-            </div>
-            <button id="watchVideoBtn" class="btn" style="margin-top: 1rem; width: 100%; background: #1f2b6c;">▶ Watch Video</button>
-          </div>
-        </div>
-
-        <!-- PDF Card -->
-        <div class="media-card" id="pdfCard">
-          <div class="media-preview" style="background: linear-gradient(135deg, #dc2626, #b91c1c);">
-            <i class="fas fa-file-pdf"></i>
-          </div>
-          <div class="media-info">
-            <h3>📄 Portfolio Document</h3>
-            <p>View your resume, case study PDF, or any document you want to share.</p>
-            <div class="url-input-group">
-              <label class="url-label"><i class="fas fa-link"></i> Your PDF URL:</label>
-              <input type="text" id="pdfUrlInput" class="url-field" placeholder="https://example.com/document.pdf" value="https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf">
-              <button id="updatePdfBtn" class="update-btn"><i class="fas fa-save"></i> Set PDF Link</button>
-            </div>
-            <button id="viewPdfBtn" class="btn" style="margin-top: 1rem; width: 100%; background: #dc2626;">📖 View PDF</button>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- About + Experience -->
-  <section id="about">
-    <div class="container">
-      <div class="about-wrapper">
-        <div class="about-text">
-          <h2 class="section-title" style="margin-bottom: 1.2rem;">About me</h2>
-          <p>I'm a creative technologist based in NYC, blending modern UI engineering with human-centered design. Over the past 6 years, I've collaborated with startups and global brands to ship products that people love to use.</p>
-          <p>My approach is research-driven, obsessive about details, and always focused on performance and accessibility. Outside code, I mentor junior designers and contribute to open-source design systems.</p>
-        </div>
-        <div style="flex: 0.9">
-          <div class="exp-card">
-            <h4>Lead Product Designer @ Luminate</h4>
-            <div class="exp-date">2022 — Present</div>
-            <p>Redesigned core SaaS platform, increased user engagement by 42%.</p>
-          </div>
-          <div class="exp-card">
-            <h4>Frontend Engineer @ CreativeDash</h4>
-            <div class="exp-date">2020 — 2022</div>
-            <p>Built component library from scratch, implemented design tokens.</p>
-          </div>
-          <div class="exp-card">
-            <h4>BFA in Digital Media & Design</h4>
-            <div class="exp-date">2016 — 2020</div>
-            <p>RISD — graduated with honors, focus on interactive art.</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Contact Section -->
-  <section id="contact">
-    <div class="container">
-      <h2 class="section-title">Let's create something great</h2>
-      <div class="contact-container">
-        <form id="contactForm" action="#" method="post">
-          <div class="form-group">
-            <input type="text" id="name" placeholder="Your name" required>
-          </div>
-          <div class="form-group">
-            <input type="email" id="email" placeholder="Email address" required>
-          </div>
-          <div class="form-group">
-            <textarea rows="4" id="message" placeholder="Tell me about your project or idea..."></textarea>
-          </div>
-          <button type="submit" class="btn btn-primary" style="width: auto; padding: 0.9rem 2rem;">Send message <i class="fas fa-paper-plane"></i></button>
-          <div id="formFeedback" class="form-message"></div>
-        </form>
-      </div>
-    </div>
-  </section>
-</main>
-
-<footer>
-  <div class="container">
-    <div class="social-links">
-      <a href="#" aria-label="GitHub"><i class="fab fa-github"></i></a>
-      <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
-      <a href="#" aria-label="Dribbble"><i class="fab fa-dribbble"></i></a>
-      <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
-    </div>
-    <p>© 2025 Alex Morgan — Designed with purpose & curiosity. Customize your video and PDF links above.</p>
-  </div>
-</footer>
-
-<!-- Modal for Video/PDF -->
-<div id="mediaModal" class="modal">
-  <div class="modal-content">
-    <button class="modal-close" id="closeModalBtn">&times;</button>
-    <div id="modalBody"></div>
+  <div class="info-footer">
+    <span><i class="fas fa-info-circle"></i> Assignment ready: video + report stored locally</span>
+    <span><i class="fas fa-download"></i> Files are not uploaded to any server — 100% client-side</span>
+    <a href="#" id="resetAllLink"><i class="fas fa-eraser"></i> Reset all files</a>
   </div>
 </div>
 
 <script>
-  // Get DOM elements
-  const modal = document.getElementById('mediaModal');
-  const modalBody = document.getElementById('modalBody');
-  const closeBtn = document.getElementById('closeModalBtn');
-  
-  // Video and PDF URLs (stored in localStorage to persist user changes)
-  let currentVideoUrl = localStorage.getItem('portfolioVideoUrl') || 'https://www.w3schools.com/html/mov_bbb.mp4';
-  let currentPdfUrl = localStorage.getItem('portfolioPdfUrl') || 'https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf';
-  
-  // Input fields
-  const videoUrlInput = document.getElementById('videoUrlInput');
-  const pdfUrlInput = document.getElementById('pdfUrlInput');
-  const updateVideoBtn = document.getElementById('updateVideoBtn');
-  const updatePdfBtn = document.getElementById('updatePdfBtn');
-  const watchVideoBtn = document.getElementById('watchVideoBtn');
-  const viewPdfBtn = document.getElementById('viewPdfBtn');
-  
-  // Initialize input values
-  videoUrlInput.value = currentVideoUrl;
-  pdfUrlInput.value = currentPdfUrl;
-  
-  // Update video URL
-  function updateVideoUrl() {
-    let newUrl = videoUrlInput.value.trim();
-    if (newUrl === '') {
-      alert('Please enter a valid video URL (MP4 format recommended)');
-      return;
-    }
-    currentVideoUrl = newUrl;
-    localStorage.setItem('portfolioVideoUrl', currentVideoUrl);
-    alert('✅ Video link updated! Click "Watch Video" to view your content.');
-  }
-  
-  // Update PDF URL
-  function updatePdfUrl() {
-    let newUrl = pdfUrlInput.value.trim();
-    if (newUrl === '') {
-      alert('Please enter a valid PDF URL');
-      return;
-    }
-    currentPdfUrl = newUrl;
-    localStorage.setItem('portfolioPdfUrl', currentPdfUrl);
-    alert('✅ PDF link updated! Click "View PDF" to open your document.');
-  }
-  
-  // Open video modal
-  function openVideo() {
-    if (!currentVideoUrl) {
-      alert('No video URL set. Please add a video link above.');
-      return;
-    }
-    modalBody.innerHTML = `
-      <video class="modal-video" controls autoplay>
-        <source src="${currentVideoUrl}" type="video/mp4">
-        Your browser does not support the video tag. 
-        <a href="${currentVideoUrl}" target="_blank">Download video</a>
-      </video>
-    `;
-    modal.classList.add('active');
-  }
-  
-  // Open PDF modal
-  function openPdf() {
-    if (!currentPdfUrl) {
-      alert('No PDF URL set. Please add a PDF link above.');
-      return;
-    }
-    // Use iframe for PDF viewing (most reliable)
-    modalBody.innerHTML = `
-      <iframe class="modal-pdf" src="${currentPdfUrl}" frameborder="0">
-        This browser does not support PDF embedding. 
-        <a href="${currentPdfUrl}" target="_blank">Download PDF</a>
-      </iframe>
-    `;
-    modal.classList.add('active');
-  }
-  
-  // Close modal
-  function closeModal() {
-    modal.classList.remove('active');
-    modalBody.innerHTML = '';
-  }
-  
-  // Event listeners
-  updateVideoBtn.addEventListener('click', updateVideoUrl);
-  updatePdfBtn.addEventListener('click', updatePdfUrl);
-  watchVideoBtn.addEventListener('click', openVideo);
-  viewPdfBtn.addEventListener('click', openPdf);
-  closeBtn.addEventListener('click', closeModal);
-  
-  // Click outside modal to close
-  modal.addEventListener('click', (e) => {
-    if (e.target === modal) closeModal();
-  });
-  
-  // Contact form handler
-  const contactForm = document.getElementById('contactForm');
-  const feedbackDiv = document.getElementById('formFeedback');
-  contactForm.addEventListener('submit', (e) => {
-    e.preventDefault();
-    const nameInput = document.getElementById('name');
-    const emailInput = document.getElementById('email');
-    const messageInput = document.getElementById('message');
-    let isValid = true;
-    if (nameInput.value.trim() === '') isValid = false;
-    const emailPattern = /^[^\s@]+@([^\s@]+\.)+[^\s@]+$/;
-    if (!emailPattern.test(emailInput.value.trim())) isValid = false;
-    if (messageInput.value.trim() === '') isValid = false;
+  (function() {
+    // ----- DOM elements -----
+    // Video elements
+    const videoUploadArea = document.getElementById('videoUploadArea');
+    const videoInput = document.getElementById('videoFileInput');
+    const videoPreviewContainer = document.getElementById('videoPreviewContainer');
+    const videoStatusDiv = document.getElementById('videoStatus');
+    const clearVideoBtn = document.getElementById('clearVideoBtn');
     
-    if (isValid) {
-      feedbackDiv.innerHTML = '<span style="color: #1f2b6c; background:#eef2ff; padding: 0.5rem 1rem; border-radius: 60px;">✨ Thanks ' + nameInput.value.split(' ')[0] + '! I’ll reach out soon.</span>';
-      contactForm.reset();
-      setTimeout(() => feedbackDiv.innerHTML = '', 5000);
-    } else {
-      feedbackDiv.innerHTML = '<span style="color:#b91c1c;">Please fill all fields correctly.</span>';
-      setTimeout(() => feedbackDiv.innerHTML = '', 3000);
+    // PDF elements
+    const pdfUploadArea = document.getElementById('pdfUploadArea');
+    const pdfInput = document.getElementById('pdfFileInput');
+    const pdfPreviewContainer = document.getElementById('pdfPreviewContainer');
+    const pdfStatusDiv = document.getElementById('pdfStatus');
+    const clearPdfBtn = document.getElementById('clearPdfBtn');
+    
+    const resetAllLink = document.getElementById('resetAllLink');
+
+    // ----- helper functions for localStorage persistence (optional but nice) -----
+    // We will store file data as base64 strings to survive page refresh (within limits)
+    // But careful: large videos may exceed localStorage quota (5-10MB). 
+    // For class assignment, we handle with best effort: if video is too large, we warn and don't persist.
+    // Instead, we implement graceful: files are kept in memory (blob URLs) but not persisted across reload.
+    // To meet "build a website where I will upload my work video and a report in pdf form" 
+    // we focus on upload & preview. For better UX, we add session persistence using IndexedDB? Too complex, 
+    // but we can store small PDFs and small videos as optional. However modern browsers allow bigger local storage? risky.
+    // Simpler: store file references only in memory but if you refresh, the upload is cleared. 
+    // But typical assignment websites often reset on refresh, that's acceptable.
+    // However we want a polished experience, so we will implement persistence for PDF (since small) and for video we'll show a message.
+    // Actually to make it robust, we rely on blobs + sessionStorage for metadata? But video large => we notify.
+    // Best: we use IndexedDB? Overkill. Instead, on page load, we restore from localStorage only if files are small.
+    // For simplicity & reliability, we keep uploaded files in memory (blob URLs) and display preview.
+    // On refresh they disappear, but user can re-upload. This is clean and avoids quota errors.
+    // We'll also add a reset that clears everything.
+    
+    let currentVideoBlob = null;      // store blob for video
+    let currentVideoUrl = null;       // object url
+    let currentPdfBlob = null;
+    let currentPdfUrl = null;
+    
+    // Helper to revoke object URLs
+    function revokeVideoUrl() {
+      if (currentVideoUrl) {
+        URL.revokeObjectURL(currentVideoUrl);
+        currentVideoUrl = null;
+      }
     }
-  });
-  
-  // Scroll reveal effect
-  const revealElements = document.querySelectorAll('.project-card, .skill-card, .exp-card, .media-card');
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.style.opacity = '1';
-        entry.target.style.transform = 'translateY(0)';
+    
+    function revokePdfUrl() {
+      if (currentPdfUrl) {
+        URL.revokeObjectURL(currentPdfUrl);
+        currentPdfUrl = null;
       }
-    });
-  }, { threshold: 0.1 });
-  
-  revealElements.forEach(el => {
-    el.style.opacity = '0';
-    el.style.transform = 'translateY(12px)';
-    el.style.transition = 'opacity 0.5s ease, transform 0.4s ease';
-    observer.observe(el);
-  });
-  
-  window.addEventListener('load', () => {
-    revealElements.forEach(el => {
-      const rect = el.getBoundingClientRect();
-      if (rect.top < window.innerHeight - 100) {
-        el.style.opacity = '1';
-        el.style.transform = 'translateY(0)';
+    }
+    
+    // video preview render (shows video player)
+    function renderVideoPreview(blob) {
+      videoPreviewContainer.innerHTML = '';
+      if (!blob) {
+        clearVideoBtn.style.display = 'none';
+        videoStatusDiv.style.display = 'none';
+        return;
       }
+      // Create object url
+      if (currentVideoUrl) revokeVideoUrl();
+      currentVideoUrl = URL.createObjectURL(blob);
+      const videoElem = document.createElement('video');
+      videoElem.controls = true;
+      videoElem.autoplay = false;
+      videoElem.preload = 'metadata';
+      videoElem.style.width = '100%';
+      videoElem.style.borderRadius = '1rem';
+      videoElem.style.maxHeight = '260px';
+      const source = document.createElement('source');
+      source.src = currentVideoUrl;
+      source.type = blob.type;
+      videoElem.appendChild(source);
+      videoElem.innerHTML = 'Your browser does not support the video tag.';
+      const wrapper = document.createElement('div');
+      wrapper.className = 'video-preview';
+      wrapper.appendChild(videoElem);
+      videoPreviewContainer.appendChild(wrapper);
+      
+      // show file info
+      const sizeMB = (blob.size / (1024 * 1024)).toFixed(2);
+      const infoDiv = document.createElement('div');
+      infoDiv.className = 'file-info';
+      infoDiv.innerHTML = `<i class="fas fa-file-video"></i> <span>${blob.name || 'work_video'} (${sizeMB} MB)</span>`;
+      videoPreviewContainer.appendChild(infoDiv);
+      
+      clearVideoBtn.style.display = 'inline-flex';
+      videoStatusDiv.style.display = 'flex';
+      videoStatusDiv.innerHTML = '<i class="fas fa-check-circle" style="color:#2b7a3e;"></i> Video ready for viewing.';
+    }
+    
+    // PDF preview (embed iframe)
+    function renderPdfPreview(blob) {
+      pdfPreviewContainer.innerHTML = '';
+      if (!blob) {
+        clearPdfBtn.style.display = 'none';
+        pdfStatusDiv.style.display = 'none';
+        return;
+      }
+      if (currentPdfUrl) revokePdfUrl();
+      currentPdfUrl = URL.createObjectURL(blob);
+      const embedWrapper = document.createElement('div');
+      embedWrapper.className = 'pdf-preview';
+      const iframe = document.createElement('iframe');
+      iframe.title = "PDF Report Preview";
+      iframe.src = currentPdfUrl;
+      iframe.style.width = '100%';
+      iframe.style.height = '380px';
+      iframe.style.borderRadius = '0.8rem';
+      embedWrapper.appendChild(iframe);
+      pdfPreviewContainer.appendChild(embedWrapper);
+      
+      const sizeMB = (blob.size / (1024 * 1024)).toFixed(2);
+      const infoDiv = document.createElement('div');
+      infoDiv.className = 'file-info';
+      infoDiv.innerHTML = `<i class="fas fa-file-pdf"></i> <span>${blob.name || 'report.pdf'} (${sizeMB} MB) · embedded viewer</span>`;
+      pdfPreviewContainer.appendChild(infoDiv);
+      
+      clearPdfBtn.style.display = 'inline-flex';
+      pdfStatusDiv.style.display = 'flex';
+      pdfStatusDiv.innerHTML = '<i class="fas fa-check-circle" style="color:#2b7a3e;"></i> PDF ready.';
+    }
+    
+    // handle video file selection
+    function handleVideoFile(file) {
+      if (!file) return;
+      // validate type
+      if (!file.type.startsWith('video/')) {
+        alert('Please select a valid video file (MP4, WebM, MOV).');
+        return;
+      }
+      if (file.size > 150 * 1024 * 1024) {
+        alert('Video file is too large! Maximum 150MB allowed.');
+        return;
+      }
+      currentVideoBlob = file;
+      renderVideoPreview(currentVideoBlob);
+      // optional: clear file input value so same file can be re-uploaded later
+      videoInput.value = '';
+      showTemporaryStatus(videoStatusDiv, '✅ Video uploaded successfully!', true);
+    }
+    
+    function handlePdfFile(file) {
+      if (!file) return;
+      if (file.type !== 'application/pdf') {
+        alert('Please upload a valid PDF document.');
+        return;
+      }
+      if (file.size > 30 * 1024 * 1024) {
+        alert('PDF file exceeds 30MB limit.');
+        return;
+      }
+      currentPdfBlob = file;
+      renderPdfPreview(currentPdfBlob);
+      pdfInput.value = '';
+      showTemporaryStatus(pdfStatusDiv, '📄 PDF report uploaded!', true);
+    }
+    
+    // clear video
+    function clearVideo() {
+      currentVideoBlob = null;
+      revokeVideoUrl();
+      videoPreviewContainer.innerHTML = '';
+      clearVideoBtn.style.display = 'none';
+      videoStatusDiv.style.display = 'none';
+      videoStatusDiv.innerHTML = '';
+      showTemporaryStatus(videoStatusDiv, 'Video removed.', false);
+      videoInput.value = '';
+    }
+    
+    function clearPdf() {
+      currentPdfBlob = null;
+      revokePdfUrl();
+      pdfPreviewContainer.innerHTML = '';
+      clearPdfBtn.style.display = 'none';
+      pdfStatusDiv.style.display = 'none';
+      pdfStatusDiv.innerHTML = '';
+      pdfInput.value = '';
+      showTemporaryStatus(pdfStatusDiv, 'PDF removed.', false);
+    }
+    
+    function showTemporaryStatus(element, message, isSuccess = true) {
+      if (!element) return;
+      element.style.display = 'flex';
+      const icon = isSuccess ? '<i class="fas fa-check-circle" style="color:#2c8c3e;"></i>' : '<i class="fas fa-info-circle" style="color:#4a6a85;"></i>';
+      element.innerHTML = `${icon} ${message}`;
+      setTimeout(() => {
+        if ((currentVideoBlob && element === videoStatusDiv) || (currentPdfBlob && element === pdfStatusDiv)) {
+          // keep visible if file present, else hide after timeout
+          if (element === videoStatusDiv && !currentVideoBlob) element.style.display = 'none';
+          else if (element === pdfStatusDiv && !currentPdfBlob) element.style.display = 'none';
+          else if (element === videoStatusDiv && currentVideoBlob) { /* keep visible, but don't hide the success */ }
+          else if (element === pdfStatusDiv && currentPdfBlob) { /* keep */ }
+          else element.style.display = 'none';
+        } else {
+          element.style.display = 'none';
+        }
+      }, 3000);
+    }
+    
+    // Reset everything
+    function resetAll() {
+      clearVideo();
+      clearPdf();
+      // additional visual reset for status messages
+      videoStatusDiv.style.display = 'none';
+      pdfStatusDiv.style.display = 'none';
+      showTemporaryStatus(videoStatusDiv, 'All files cleared.', false);
+      setTimeout(() => {
+        if(videoStatusDiv) videoStatusDiv.style.display = 'none';
+        if(pdfStatusDiv) pdfStatusDiv.style.display = 'none';
+      }, 1800);
+    }
+    
+    // drag & drop support for video and PDF areas
+    function setupDragAndDrop(areaElement, fileInputElement, isVideoHandler, isPdfHandler) {
+      areaElement.addEventListener('dragover', (e) => {
+        e.preventDefault();
+        areaElement.style.background = '#eaf4ff';
+        areaElement.style.borderColor = '#3b82f6';
+      });
+      areaElement.addEventListener('dragleave', (e) => {
+        areaElement.style.background = '#fafdff';
+        areaElement.style.borderColor = '#cbdde9';
+      });
+      areaElement.addEventListener('drop', (e) => {
+        e.preventDefault();
+        areaElement.style.background = '#fafdff';
+        areaElement.style.borderColor = '#cbdde9';
+        const files = e.dataTransfer.files;
+        if (files.length > 0) {
+          const file = files[0];
+          if (isVideoHandler && file.type.startsWith('video/')) {
+            handleVideoFile(file);
+          } else if (isPdfHandler && file.type === 'application/pdf') {
+            handlePdfFile(file);
+          } else {
+            alert(isVideoHandler ? 'Please drop a valid video file (MP4, WebM, etc.)' : 'Please drop a valid PDF file.');
+          }
+        }
+      });
+    }
+    
+    // event binding
+    videoUploadArea.addEventListener('click', () => videoInput.click());
+    videoInput.addEventListener('change', (e) => {
+      if (e.target.files && e.target.files[0]) handleVideoFile(e.target.files[0]);
     });
-  });
+    
+    pdfUploadArea.addEventListener('click', () => pdfInput.click());
+    pdfInput.addEventListener('change', (e) => {
+      if (e.target.files && e.target.files[0]) handlePdfFile(e.target.files[0]);
+    });
+    
+    clearVideoBtn.addEventListener('click', clearVideo);
+    clearPdfBtn.addEventListener('click', clearPdf);
+    resetAllLink.addEventListener('click', (e) => {
+      e.preventDefault();
+      resetAll();
+    });
+    
+    // drag & drop initialization
+    setupDragAndDrop(videoUploadArea, videoInput, true, false);
+    setupDragAndDrop(pdfUploadArea, pdfInput, false, true);
+    
+    // optional: add small note: if the user refreshes, uploads are lost but re-upload is simple.
+    // We can also show a tip in footer or console.
+    const footer = document.querySelector('.info-footer');
+    if(footer) {
+      const tipSpan = document.createElement('span');
+      tipSpan.innerHTML = '<i class="fas fa-sync-alt"></i> Refresh resets uploads — re-upload any time';
+      tipSpan.style.fontSize = '0.75rem';
+      tipSpan.style.opacity = '0.8';
+      footer.appendChild(tipSpan);
+    }
+    
+    // preload any demo? not needed, but leave empty state.
+    console.log("Assignment portal ready — upload video & PDF report");
+  })();
 </script>
 </body>
 </html>
