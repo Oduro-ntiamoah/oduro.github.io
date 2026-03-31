@@ -3,7 +3,10 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-  <title>Alex Morgan | Portfolio · Bio & Insights</title>
+  <title>Alex Morgan | Creative Portfolio</title>
+  <!-- Google Fonts + Smooth Behavior -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
   <style>
     * {
       margin: 0;
@@ -12,638 +15,662 @@
     }
 
     body {
-      background: #f8fafc;
-      font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
-      color: #0a2b3e;
-      line-height: 1.4;
-    }
-
-    /* smooth scroll & container */
-    .portfolio-container {
-      max-width: 1400px;
-      margin: 0 auto;
-      padding: 2rem 2rem 2rem 2rem;
-    }
-
-    /* header with name & tagline */
-    .hero-section {
-      margin-bottom: 2.5rem;
-      text-align: center;
-      position: relative;
-    }
-
-    .badge-role {
-      display: inline-block;
-      background: rgba(44, 125, 160, 0.12);
-      backdrop-filter: blur(2px);
-      padding: 0.3rem 1rem;
-      border-radius: 40px;
-      font-size: 0.8rem;
-      font-weight: 500;
-      color: #1e6f96;
-      margin-bottom: 1rem;
-      letter-spacing: 0.3px;
-    }
-
-    .hero-section h1 {
-      font-size: 3.2rem;
-      font-weight: 700;
-      background: linear-gradient(125deg, #1f4e6e, #2c7da0, #3c9bc2);
-      background-clip: text;
-      -webkit-background-clip: text;
-      color: transparent;
-      letter-spacing: -0.02em;
-      margin-bottom: 0.5rem;
-    }
-
-    .hero-tagline {
-      font-size: 1.2rem;
-      color: #3a6b8c;
-      max-width: 650px;
-      margin: 0 auto;
-      border-bottom: 1px solid #cde3ed;
-      display: inline-block;
-      padding-bottom: 0.5rem;
-    }
-
-    /* two column core layout: video (bio) | pdf cards */
-    .bio-pdf-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 2rem;
-      margin-bottom: 2.5rem;
-    }
-
-    /* BIOGRAPHY VIDEO CARD (elevated) */
-    .bio-video-card {
-      background: #ffffff;
-      border-radius: 2rem;
-      box-shadow: 0 20px 35px -12px rgba(0, 0, 0, 0.08), 0 1px 2px rgba(0,0,0,0.02);
-      overflow: hidden;
-      transition: transform 0.25s ease, box-shadow 0.3s;
-      border: 1px solid #eef2f8;
-    }
-
-    .bio-video-card:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 28px 40px -16px rgba(0, 0, 0, 0.15);
-    }
-
-    .video-wrapper {
-      position: relative;
-      background: #0b1c26;
-    }
-
-    video {
-      width: 100%;
-      display: block;
-      aspect-ratio: 16 / 9;
-      object-fit: cover;
-      outline: none;
-    }
-
-    .bio-caption {
-      padding: 1.3rem 1.6rem;
-      background: white;
-    }
-
-    .bio-caption h2 {
-      font-size: 1.5rem;
-      font-weight: 700;
-      color: #145c7c;
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      margin-bottom: 0.5rem;
-    }
-
-    .bio-caption h2::before {
-      content: "🎬";
-      font-size: 1.5rem;
-    }
-
-    .bio-caption p {
-      color: #2f5d7a;
+      font-family: 'Inter', sans-serif;
+      background-color: #fbfcff;
+      color: #111827;
       line-height: 1.5;
-      font-size: 0.95rem;
-      margin-top: 0.25rem;
+      scroll-behavior: smooth;
     }
 
-    .bio-highlight {
-      display: flex;
-      gap: 1rem;
-      margin-top: 0.9rem;
-      flex-wrap: wrap;
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 2rem;
     }
 
-    .highlight-badge {
-      background: #eef3f9;
-      padding: 0.2rem 0.8rem;
-      border-radius: 30px;
-      font-size: 0.75rem;
-      font-weight: 500;
-      color: #1e6a8e;
+    /* Header / Navigation */
+    header {
+      position: sticky;
+      top: 0;
+      background: rgba(251, 252, 255, 0.92);
+      backdrop-filter: blur(12px);
+      z-index: 100;
+      border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+      padding: 1rem 0;
     }
 
-    /* PDF INSIGHTS PANEL */
-    .insights-panel {
-      background: white;
-      border-radius: 2rem;
-      box-shadow: 0 20px 35px -12px rgba(0, 0, 0, 0.06);
-      display: flex;
-      flex-direction: column;
-      border: 1px solid #eef2f8;
-      transition: transform 0.2s;
-    }
-
-    .insights-header {
-      padding: 1.3rem 1.6rem;
-      border-bottom: 2px solid rgba(44, 125, 160, 0.3);
-      background: #ffffff;
-    }
-
-    .insights-header h2 {
-      font-size: 1.5rem;
-      font-weight: 700;
-      color: #145c7c;
-      display: flex;
-      align-items: center;
-      gap: 8px;
-    }
-
-    .insights-header h2::before {
-      content: "📄";
-      font-size: 1.5rem;
-    }
-
-    .insights-header p {
-      font-size: 0.8rem;
-      color: #5885a3;
-      margin-top: 6px;
-    }
-
-    .pdf-resource-list {
-      max-height: 380px;
-      overflow-y: auto;
-      padding: 0.8rem 0.4rem 0.8rem 0;
-      scrollbar-width: thin;
-    }
-
-    .pdf-list-ul {
-      list-style: none;
-      padding: 0 1rem;
-      margin: 0;
-    }
-
-    .pdf-card-item {
-      margin-bottom: 0.8rem;
-    }
-
-    .pdf-portfolio-btn {
-      display: flex;
-      align-items: center;
-      gap: 14px;
-      width: 100%;
-      background: #f9fdfe;
-      border: 1px solid #e2edf2;
-      border-radius: 1.2rem;
-      padding: 0.9rem 1.2rem;
-      font-size: 0.92rem;
-      font-weight: 500;
-      color: #1a4f6e;
-      cursor: pointer;
-      transition: all 0.2s ease;
-      text-align: left;
-      font-family: inherit;
-    }
-
-    .pdf-portfolio-btn:hover {
-      background: #eef6fc;
-      border-color: #2c7da0;
-      transform: translateX(6px);
-      box-shadow: 0 6px 12px -8px rgba(0,0,0,0.1);
-    }
-
-    .pdf-portfolio-btn.active-pdf-doc {
-      background: #e2f0f8;
-      border-left: 4px solid #2c7da0;
-      border-color: #2c7da0;
-      font-weight: 600;
-      color: #0a3b54;
-    }
-
-    .pdf-doc-icon {
-      font-size: 1.7rem;
-    }
-
-    .pdf-title-area {
-      flex: 1;
-    }
-
-    .pdf-title {
-      font-weight: 600;
-    }
-
-    .pdf-meta {
-      font-size: 0.7rem;
-      color: #6f95b0;
-      margin-top: 4px;
-    }
-
-    .type-badge {
-      background: #d9e8f2;
-      border-radius: 20px;
-      padding: 0.2rem 0.6rem;
-      font-size: 0.65rem;
-      font-weight: 600;
-      color: #236b8e;
-    }
-
-    /* viewer section (full-width) */
-    .document-viewer {
-      background: white;
-      border-radius: 1.8rem;
-      box-shadow: 0 12px 28px rgba(0, 0, 0, 0.05);
-      margin-top: 1rem;
-      overflow: hidden;
-      border: 1px solid #e4edf2;
-    }
-
-    .viewer-toolbar {
+    .nav {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      padding: 0.9rem 1.8rem;
-      background: #fefefe;
-      border-bottom: 1px solid #eef2f8;
       flex-wrap: wrap;
-      gap: 12px;
     }
 
-    .current-doc-label {
+    .logo {
+      font-size: 1.7rem;
+      font-weight: 800;
+      background: linear-gradient(135deg, #1F2B6C, #3B4B9A);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      letter-spacing: -0.02em;
+    }
+
+    .nav-links {
       display: flex;
-      align-items: center;
-      gap: 8px;
-      font-weight: 600;
-      color: #1b6385;
+      gap: 2.2rem;
+      list-style: none;
     }
 
-    .current-doc-label span:first-child {
-      font-size: 1.2rem;
-    }
-
-    .btn-download {
-      background: #ecf5fa;
-      padding: 0.45rem 1.2rem;
-      border-radius: 2rem;
-      font-size: 0.8rem;
-      font-weight: 500;
+    .nav-links a {
       text-decoration: none;
-      color: #1d6f96;
-      transition: 0.2s;
-      display: inline-flex;
+      font-weight: 500;
+      color: #1f2937;
+      transition: 0.2s ease;
+      font-size: 1rem;
+    }
+
+    .nav-links a:hover {
+      color: #2e4a9a;
+      transform: translateY(-1px);
+    }
+
+    /* Buttons */
+    .btn {
+      display: inline-block;
+      background: #111827;
+      color: white;
+      padding: 0.7rem 1.8rem;
+      border-radius: 40px;
+      font-weight: 600;
+      text-decoration: none;
+      transition: all 0.25s;
+      border: none;
+      cursor: pointer;
+      font-size: 0.9rem;
+    }
+
+    .btn-outline {
+      background: transparent;
+      border: 1.5px solid #111827;
+      color: #111827;
+    }
+
+    .btn-outline:hover {
+      background: #111827;
+      color: white;
+      transform: translateY(-2px);
+    }
+
+    .btn-primary {
+      background: #1f2b6c;
+      box-shadow: 0 8px 18px rgba(31, 43, 108, 0.2);
+    }
+
+    .btn-primary:hover {
+      background: #121b4a;
+      transform: translateY(-3px);
+    }
+
+    /* Hero Section */
+    .hero {
+      padding: 5rem 0 4rem 0;
+      display: flex;
+      flex-wrap: wrap;
       align-items: center;
-      gap: 6px;
-      border: 1px solid #cde0ea;
+      justify-content: space-between;
+      gap: 3rem;
     }
 
-    .btn-download:hover {
-      background: #e1eef7;
-      color: #0a4d6e;
+    .hero-content {
+      flex: 1.2;
     }
 
-    .pdf-frame-container {
-      background: #eef3f7;
-      min-height: 68vh;
-      padding: 1.2rem;
+    .hero-badge {
+      font-size: 0.85rem;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      color: #2e4a9a;
+      font-weight: 600;
+      margin-bottom: 1rem;
+    }
+
+    .hero-content h1 {
+      font-size: 3.2rem;
+      font-weight: 800;
+      line-height: 1.2;
+      margin-bottom: 1.2rem;
+      letter-spacing: -0.02em;
+    }
+
+    .highlight {
+      background: linear-gradient(120deg, #e0e7ff 0%, #e0e7ff 40%, transparent 70%);
+      padding: 0 0.2rem;
+    }
+
+    .hero-desc {
+      font-size: 1.2rem;
+      color: #4b5563;
+      max-width: 520px;
+      margin-bottom: 2rem;
+    }
+
+    .hero-buttons {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .hero-image {
+      flex: 0.9;
+      background: linear-gradient(145deg, #eef2ff, #ffffff);
+      border-radius: 48% 52% 70% 30% / 40% 45% 55% 60%;
+      padding: 1rem;
+      text-align: center;
+    }
+
+    .hero-image img {
+      max-width: 100%;
+      width: 280px;
+      filter: drop-shadow(0 20px 25px -5px rgba(0, 0, 0, 0.1));
+    }
+
+    /* Section general */
+    section {
+      padding: 5rem 0;
+    }
+
+    .section-title {
+      font-size: 2.2rem;
+      font-weight: 700;
+      margin-bottom: 2.5rem;
+      letter-spacing: -0.01em;
+      position: relative;
+      display: inline-block;
+    }
+
+    .section-title:after {
+      content: '';
+      position: absolute;
+      bottom: -12px;
+      left: 0;
+      width: 60px;
+      height: 4px;
+      background: #1f2b6c;
+      border-radius: 4px;
+    }
+
+    /* Skills Grid */
+    .skills-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      margin-top: 1rem;
+    }
+
+    .skill-card {
+      background: white;
+      border-radius: 60px;
+      padding: 0.7rem 1.6rem;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.03);
+      border: 1px solid #eef2ff;
+      font-weight: 500;
+      transition: all 0.2s;
+    }
+
+    .skill-card:hover {
+      border-color: #b9c8ff;
+      transform: translateY(-3px);
+      background: #fafcff;
+    }
+
+    /* Projects Grid */
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+      gap: 2rem;
+      margin-top: 1rem;
+    }
+
+    .project-card {
+      background: white;
+      border-radius: 28px;
+      overflow: hidden;
+      transition: all 0.3s cubic-bezier(0.2, 0, 0, 1);
+      box-shadow: 0 12px 28px -8px rgba(0, 0, 0, 0.08);
+      border: 1px solid #eef2ff;
+    }
+
+    .project-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 25px 35px -12px rgba(0, 0, 0, 0.12);
+    }
+
+    .project-img {
+      background: #eef2ff;
+      height: 200px;
       display: flex;
       align-items: center;
       justify-content: center;
+      font-size: 3rem;
+      color: #1f2b6c;
     }
 
-    iframe {
-      width: 100%;
-      height: 68vh;
-      border: none;
-      border-radius: 1.2rem;
+    .project-info {
+      padding: 1.5rem;
+    }
+
+    .project-info h3 {
+      font-size: 1.5rem;
+      margin-bottom: 0.5rem;
+      font-weight: 700;
+    }
+
+    .project-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin: 1rem 0;
+    }
+
+    .tag {
+      background: #f0f4fe;
+      padding: 0.2rem 0.8rem;
+      border-radius: 20px;
+      font-size: 0.75rem;
+      font-weight: 600;
+      color: #1f2b6c;
+    }
+
+    .project-link {
+      text-decoration: none;
+      font-weight: 600;
+      color: #1f2b6c;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      margin-top: 0.6rem;
+      transition: gap 0.2s;
+    }
+
+    .project-link:hover {
+      gap: 12px;
+    }
+
+    /* About & Experience */
+    .about-wrapper {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 3rem;
+      align-items: center;
+    }
+
+    .about-text {
+      flex: 1.2;
+    }
+
+    .about-text p {
+      margin-bottom: 1.2rem;
+      color: #2d3a4b;
+    }
+
+    .exp-card {
       background: white;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.03);
+      border-left: 4px solid #1f2b6c;
+      padding: 1.2rem 1.5rem;
+      margin-bottom: 1.5rem;
+      border-radius: 20px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.02);
+      transition: 0.2s;
     }
 
-    .empty-viewer-message {
-      text-align: center;
-      padding: 3rem;
-      background: #ffffffd9;
-      border-radius: 1.5rem;
-      color: #5f8dab;
+    .exp-card h4 {
+      font-size: 1.2rem;
+      font-weight: 700;
+    }
+
+    .exp-date {
+      font-size: 0.8rem;
+      color: #5f6c84;
+      margin: 0.3rem 0 0.5rem;
+    }
+
+    /* Contact form */
+    .contact-container {
+      background: #ffffff;
+      border-radius: 36px;
+      padding: 2rem;
+      box-shadow: 0 20px 35px -10px rgba(0, 0, 0, 0.05);
+      border: 1px solid #eef2ff;
+    }
+
+    .form-group {
+      margin-bottom: 1.5rem;
+    }
+
+    input, textarea {
+      width: 100%;
+      padding: 1rem 1.2rem;
+      border: 1px solid #e2e8f0;
+      border-radius: 32px;
+      font-family: 'Inter', sans-serif;
+      font-size: 1rem;
+      transition: 0.2s;
+      background: #fefefe;
+    }
+
+    input:focus, textarea:focus {
+      outline: none;
+      border-color: #1f2b6c;
+      box-shadow: 0 0 0 3px rgba(31, 43, 108, 0.1);
+    }
+
+    textarea {
+      border-radius: 28px;
+      resize: vertical;
+    }
+
+    .form-message {
+      margin-top: 1rem;
+      font-size: 0.9rem;
       font-weight: 500;
     }
 
+    /* Footer */
     footer {
-      margin-top: 2rem;
+      background: #f8fafd;
+      border-top: 1px solid #eef2ff;
+      padding: 2rem 0;
       text-align: center;
-      font-size: 0.75rem;
-      color: #89a9c2;
-      border-top: 1px solid #dfeaf0;
-      padding-top: 1.6rem;
+      color: #4b5563;
     }
 
-    @media (max-width: 780px) {
-      .portfolio-container {
-        padding: 1.2rem;
+    .social-links {
+      display: flex;
+      justify-content: center;
+      gap: 1.8rem;
+      margin-bottom: 1.2rem;
+    }
+
+    .social-links a {
+      color: #2c3e66;
+      font-size: 1.5rem;
+      transition: 0.2s;
+    }
+
+    .social-links a:hover {
+      color: #0f1a3d;
+      transform: scale(1.1);
+    }
+
+    @media (max-width: 760px) {
+      .container {
+        padding: 0 1.5rem;
       }
-      .bio-pdf-grid {
-        grid-template-columns: 1fr;
-        gap: 1.5rem;
+      .hero {
+        flex-direction: column;
+        text-align: center;
       }
-      .hero-section h1 {
-        font-size: 2.2rem;
+      .hero-buttons {
+        justify-content: center;
       }
-      .pdf-resource-list {
-        max-height: 280px;
+      .hero-content h1 {
+        font-size: 2.4rem;
       }
-      .pdf-frame-container {
-        min-height: 55vh;
+      .nav-links {
+        gap: 1.2rem;
       }
-      iframe {
-        height: 55vh;
+      .section-title:after {
+        left: 50%;
+        transform: translateX(-50%);
+        width: 70px;
+      }
+      .section-title {
+        text-align: center;
+        display: block;
       }
     }
   </style>
 </head>
 <body>
-<div class="portfolio-container">
-  
-  <!-- header with owner identity -->
-  <div class="hero-section">
-    <div class="badge-role">✦ CREATIVE TECHNOLOGIST & STRATEGIST ✦</div>
-    <h1>Alex Morgan</h1>
-    <div class="hero-tagline">building bridges between innovation & human insight</div>
+
+<header>
+  <div class="container">
+    <div class="nav">
+      <div class="logo">AM STUDIO</div>
+      <ul class="nav-links">
+        <li><a href="#work">Work</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </div>
+  </div>
+</header>
+
+<main>
+  <!-- Hero Section -->
+  <div class="container">
+    <div class="hero">
+      <div class="hero-content">
+        <div class="hero-badge">✨ DIGITAL CREATOR</div>
+        <h1>Crafting bold <span class="highlight">digital experiences</span> & immersive design</h1>
+        <p class="hero-desc">I'm Alex Morgan — product designer & front-end architect. I turn complex ideas into elegant, human-friendly interfaces.</p>
+        <div class="hero-buttons">
+          <a href="#work" class="btn btn-primary">View projects <i class="fas fa-arrow-right"></i></a>
+          <a href="#contact" class="btn btn-outline">Let's talk</a>
+        </div>
+      </div>
+      <div class="hero-image">
+        <!-- Abstract avatar / creative svg representation -->
+        <svg viewBox="0 0 280 280" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="140" cy="120" r="48" fill="#EFF4FF" stroke="#1F2B6C" stroke-width="3"/>
+          <path d="M100 180 L180 180 Q190 210 140 215 Q90 210 100 180Z" fill="#EFF4FF" stroke="#1F2B6C" stroke-width="2.5"/>
+          <circle cx="115" cy="110" r="5" fill="#1F2B6C"/>
+          <circle cx="165" cy="110" r="5" fill="#1F2B6C"/>
+          <path d="M125 135 Q140 148 155 135" stroke="#1F2B6C" stroke-width="3" stroke-linecap="round"/>
+          <path d="M200 70 L220 50 M210 80 L228 62" stroke="#3B4B9A" stroke-width="4" stroke-linecap="round"/>
+          <path d="M80 70 L60 50 M70 80 L52 62" stroke="#3B4B9A" stroke-width="4" stroke-linecap="round"/>
+          <rect x="130" y="30" width="20" height="20" rx="4" fill="#FFD966" stroke="#1F2B6C" stroke-width="1.5"/>
+        </svg>
+      </div>
+    </div>
   </div>
 
-  <!-- BIO + PDF COLLECTION -->
-  <div class="bio-pdf-grid">
-    <!-- LEFT: VIDEO BIOGRAPHY (owner's story) -->
-    <div class="bio-video-card">
-      <div class="video-wrapper">
-        <video controls poster="https://images.pexels.com/photos/3184292/pexels-photo-3184292.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" preload="metadata">
-          <!-- using a high-quality, professional cinematic video that suits biography / storytelling (open source sample from pexels/ coverr style but reliable) 
-          Actually we use a beautiful sample from github assets - this is a neutral storytelling-style video: "The Creative Mind" style. We'll embed a valid mp4 from coverr / pexels public domain equivalent but using a reliable common CDN -->
-          <source src="https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/WhatCar.mp4" type="video/mp4">
-          Your browser does not support the video element. Upgrade to watch Alex's biography.
-        </video>
+  <!-- Skills Section -->
+  <div class="container">
+    <div>
+      <h2 class="section-title">Tech & Tools</h2>
+      <div class="skills-grid">
+        <span class="skill-card">React.js</span>
+        <span class="skill-card">Next.js</span>
+        <span class="skill-card">Tailwind CSS</span>
+        <span class="skill-card">Figma</span>
+        <span class="skill-card">TypeScript</span>
+        <span class="skill-card">Node.js</span>
+        <span class="skill-card">GSAP</span>
+        <span class="skill-card">UI/UX Design</span>
+        <span class="skill-card">Python</span>
       </div>
-      <div class="bio-caption">
-        <h2>Biography | The journey</h2>
-        <p>Alex Morgan is a product strategist, creative technologist, and mentor. With over 12 years of experience in human-centered design, Alex has collaborated with global teams to shape digital experiences that matter. This short visual story shares the philosophy, milestones, and creative vision that define his work.</p>
-        <div class="bio-highlight">
-          <span class="highlight-badge">📍 Based in Berlin / NYC</span>
-          <span class="highlight-badge">🏆 40+ industry projects</span>
-          <span class="highlight-badge">📚 Author & speaker</span>
+    </div>
+  </div>
+
+  <!-- Projects Section -->
+  <section id="work">
+    <div class="container">
+      <h2 class="section-title">Selected projects</h2>
+      <div class="projects-grid">
+        <div class="project-card">
+          <div class="project-img"><i class="fas fa-globe" style="font-size: 4rem;"></i></div>
+          <div class="project-info">
+            <h3>NovaBank</h3>
+            <p>Minimalist banking dashboard with real-time analytics & secure authentication. Led design system & frontend architecture.</p>
+            <div class="project-tags"><span class="tag">React</span><span class="tag">Tailwind</span><span class="tag">D3</span></div>
+            <a href="#" class="project-link">Case study →</a>
+          </div>
+        </div>
+        <div class="project-card">
+          <div class="project-img"><i class="fas fa-leaf" style="font-size: 4rem;"></i></div>
+          <div class="project-info">
+            <h3>EcoChain</h3>
+            <p>Sustainable supply chain tracker — interactive map, carbon footprint visualization and smart contract demo.</p>
+            <div class="project-tags"><span class="tag">Next.js</span><span class="tag">Solidity</span><span class="tag">Mapbox</span></div>
+            <a href="#" class="project-link">Live demo →</a>
+          </div>
+        </div>
+        <div class="project-card">
+          <div class="project-img"><i class="fas fa-palette" style="font-size: 4rem;"></i></div>
+          <div class="project-info">
+            <h3>Artelier</h3>
+            <p>Creative portfolio builder for visual artists — drag-n-drop editor, dynamic galleries and custom domains.</p>
+            <div class="project-tags"><span class="tag">Vue</span><span class="tag">Node</span><span class="tag">MongoDB</span></div>
+            <a href="#" class="project-link">Explore →</a>
+          </div>
         </div>
       </div>
     </div>
+  </section>
 
-    <!-- RIGHT: PDF INFO COLLECTION (documents about Alex: resume, portfolio insights, talks, etc.) -->
-    <div class="insights-panel">
-      <div class="insights-header">
-        <h2>Knowledge Vault</h2>
-        <p>Insights, professional profile & case studies — download or preview</p>
-      </div>
-      <div class="pdf-resource-list">
-        <ul class="pdf-list-ul" id="portfolio-pdf-list">
-          <!-- dynamic PDF items representing owner's info: resume, design principles, keynote summary, portfolio booklet -->
-        </ul>
+  <!-- About + Experience -->
+  <section id="about">
+    <div class="container">
+      <div class="about-wrapper">
+        <div class="about-text">
+          <h2 class="section-title" style="margin-bottom: 1.2rem;">About me</h2>
+          <p>I'm a creative technologist based in NYC, blending modern UI engineering with human-centered design. Over the past 6 years, I've collaborated with startups and global brands to ship products that people love to use.</p>
+          <p>My approach is research-driven, obsessive about details, and always focused on performance and accessibility. Outside code, I mentor junior designers and contribute to open-source design systems.</p>
+          <div style="margin-top: 1.8rem;">
+            <a href="#" class="btn btn-outline"><i class="fas fa-download"></i> Resume (PDF)</a>
+          </div>
+        </div>
+        <div style="flex: 0.9">
+          <div class="exp-card">
+            <h4>Lead Product Designer @ Luminate</h4>
+            <div class="exp-date">2022 — Present</div>
+            <p>Redesigned core SaaS platform, increased user engagement by 42% and reduced friction points across 3 major modules.</p>
+          </div>
+          <div class="exp-card">
+            <h4>Frontend Engineer @ CreativeDash</h4>
+            <div class="exp-date">2020 — 2022</div>
+            <p>Built component library from scratch, implemented design tokens, mentored 2 juniors and led migration to React 18.</p>
+          </div>
+          <div class="exp-card">
+            <h4>BFA in Digital Media & Design</h4>
+            <div class="exp-date">2016 — 2020</div>
+            <p>Rhode Island School of Design — graduated with honors, focus on interactive art and computational design.</p>
+          </div>
+        </div>
       </div>
     </div>
-  </div>
+  </section>
 
-  <!-- PDF PREVIEW SECTION (shows document about Alex) -->
-  <div class="document-viewer">
-    <div class="viewer-toolbar">
-      <div class="current-doc-label">
-        <span>📖</span>
-        <span id="active-doc-name">Document Preview</span>
+  <!-- Contact Section with live form feedback -->
+  <section id="contact">
+    <div class="container">
+      <h2 class="section-title">Let's create something great</h2>
+      <div class="contact-container">
+        <form id="contactForm" action="#" method="post">
+          <div class="form-group">
+            <input type="text" id="name" placeholder="Your name" required>
+          </div>
+          <div class="form-group">
+            <input type="email" id="email" placeholder="Email address" required>
+          </div>
+          <div class="form-group">
+            <textarea rows="4" id="message" placeholder="Tell me about your project or idea..."></textarea>
+          </div>
+          <button type="submit" class="btn btn-primary" style="width: auto; padding: 0.9rem 2rem;">Send message <i class="fas fa-paper-plane"></i></button>
+          <div id="formFeedback" class="form-message"></div>
+        </form>
       </div>
-      <a id="downloadCurrentBtn" href="#" download class="btn-download">⬇️ Download PDF</a>
     </div>
-    <div class="pdf-frame-container" id="pdfPreviewContainer">
-      <div class="empty-viewer-message">
-        🧠 Select any document from the "Knowledge Vault" to read about Alex’s background, methodology, and expertise.
-      </div>
+  </section>
+</main>
+
+<footer>
+  <div class="container">
+    <div class="social-links">
+      <a href="#" aria-label="GitHub"><i class="fab fa-github"></i></a>
+      <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+      <a href="#" aria-label="Dribbble"><i class="fab fa-dribbble"></i></a>
+      <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
     </div>
+    <p>© 2025 Alex Morgan — Designed with purpose & curiosity. All works fictional but passionate.</p>
   </div>
-  <footer>
-    ✦ Alex Morgan — Portfolio Hub ✦ Bio video + official documents (resume, portfolio brief, design philosophy, speaking kit)
-  </footer>
-</div>
+</footer>
 
 <script>
-  // ------------------------------------------------------------------
-  // PDF Collection: all documents contain information about the owner (Alex Morgan)
-  // Each PDF URL is a reliable, publicly accessible sample PDF that represents:
-  // - Resume / CV
-  // - Portfolio Overview
-  - Design Manifesto
-  - Speaking & Talks Summary
-  // We also embed custom naming to match portfolio context.
-  // ------------------------------------------------------------------
-  const ownerDocuments = [
-    {
-      id: 1,
-      title: "📄 Resume & Career Timeline",
-      description: "Full professional experience, education, and achievements.",
-      fileName: "Alex_Morgan_Resume.pdf",
-      url: "https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf",
-      metaType: "CV / Resume"
-    },
-    {
-      id: 2,
-      title: "✨ Portfolio Highlights 2025",
-      description: "Selected projects: AI ethics, design systems, interactive installations.",
-      fileName: "Portfolio_Showcase_Alex.pdf",
-      url: "https://www.africau.edu/images/default/sample.pdf",
-      metaType: "Case Studies"
-    },
-    {
-      id: 3,
-      title: "📘 Design Philosophy Manifesto",
-      description: "Human-first innovation, ethics, and creative process — personal essay.",
-      fileName: "Design_Manifesto_Morgan.pdf",
-      url: "https://www.orimi.com/pdf-test.pdf",
-      metaType: "Essay"
-    },
-    {
-      id: 4,
-      title: "🎤 Keynote Speaker Kit",
-      description: "Past talks, workshops & public engagements (2023–2025).",
-      fileName: "Alex_Speaking_Kit.pdf",
-      url: "https://www.clickdimensions.com/links/TestPDFfile.pdf",
-      metaType: "Media Kit"
-    },
-    {
-      id: 5,
-      title: "📊 Innovation Playbook",
-      description: "Methodologies and frameworks Alex uses in consulting.",
-      fileName: "Innovation_Playbook.pdf",
-      url: "https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf",
-      metaType: "Framework"
-    }
-  ];
+  // Smooth interactive contact form with validation & success message
+  const contactForm = document.getElementById('contactForm');
+  const feedbackDiv = document.getElementById('formFeedback');
 
-  // DOM elements
-  const pdfListContainer = document.getElementById('portfolio-pdf-list');
-  const previewContainer = document.getElementById('pdfPreviewContainer');
-  const downloadBtn = document.getElementById('downloadCurrentBtn');
-  const activeDocNameSpan = document.getElementById('active-doc-name');
-
-  let currentSelectedDoc = null;
-
-  // Helper: render PDF inside iframe
-  function renderPdfPreview(pdfUrl, docTitle) {
-    previewContainer.innerHTML = '';
-    const iframe = document.createElement('iframe');
-    iframe.setAttribute('title', `Document: ${docTitle}`);
-    iframe.setAttribute('src', pdfUrl);
-    iframe.setAttribute('frameborder', '0');
-    iframe.setAttribute('allowfullscreen', 'true');
-    iframe.style.width = '100%';
-    iframe.style.height = '68vh';
-    iframe.style.borderRadius = '16px';
-    iframe.style.backgroundColor = '#fff';
-    iframe.setAttribute('sandbox', 'allow-same-origin allow-scripts allow-popups allow-forms allow-downloads');
-    previewContainer.appendChild(iframe);
+  contactForm.addEventListener('submit', (e) => {
+    e.preventDefault();
+    const nameInput = document.getElementById('name');
+    const emailInput = document.getElementById('email');
+    const messageInput = document.getElementById('message');
     
-    // fallback for iframe load error: don't break UI
-    iframe.onerror = () => {
-      console.warn("Iframe load warning, but PDF viewer may still work");
-    };
-  }
-
-  function showEmptyPreview(message) {
-    previewContainer.innerHTML = `<div class="empty-viewer-message">${message}</div>`;
-  }
-
-  function updateDownloadAndLabel(doc) {
-    if (doc && doc.url) {
-      downloadBtn.href = doc.url;
-      downloadBtn.setAttribute('download', doc.fileName);
-      downloadBtn.style.opacity = '1';
-      downloadBtn.style.pointerEvents = 'auto';
-      activeDocNameSpan.innerText = doc.title;
-    } else {
-      downloadBtn.href = '#';
-      downloadBtn.setAttribute('download', '');
-      downloadBtn.style.opacity = '0.6';
-      downloadBtn.style.pointerEvents = 'none';
-      activeDocNameSpan.innerText = 'No document selected';
-    }
-  }
-
-  function selectDocument(doc) {
-    if (!doc || !doc.url) return;
-    currentSelectedDoc = doc;
-    renderPdfPreview(doc.url, doc.title);
-    updateDownloadAndLabel(doc);
+    let isValid = true;
+    if (nameInput.value.trim() === '') {
+      isValid = false;
+      nameInput.style.borderColor = '#e53e3e';
+      setTimeout(() => nameInput.style.borderColor = '#e2e8f0', 1500);
+    } else nameInput.style.borderColor = '#e2e8f0';
     
-    // active class management
-    const allBtns = document.querySelectorAll('.pdf-portfolio-btn');
-    allBtns.forEach(btn => {
-      btn.classList.remove('active-pdf-doc');
-      if (btn.getAttribute('data-doc-id') == doc.id) {
-        btn.classList.add('active-pdf-doc');
-      }
-    });
-  }
-
-  // Build the PDF list (documents about Alex)
-  function buildDocumentList() {
-    if (!pdfListContainer) return;
-    pdfListContainer.innerHTML = '';
+    const emailPattern = /^[^\s@]+@([^\s@]+\.)+[^\s@]+$/;
+    if (!emailPattern.test(emailInput.value.trim())) {
+      isValid = false;
+      emailInput.style.borderColor = '#e53e3e';
+      setTimeout(() => emailInput.style.borderColor = '#e2e8f0', 1500);
+    } else emailInput.style.borderColor = '#e2e8f0';
     
-    ownerDocuments.forEach(doc => {
-      const li = document.createElement('li');
-      li.className = 'pdf-card-item';
-      
-      const button = document.createElement('button');
-      button.className = 'pdf-portfolio-btn';
-      button.setAttribute('data-doc-id', doc.id);
-      button.setAttribute('aria-label', `Preview ${doc.title}`);
-      
-      const iconSpan = document.createElement('span');
-      iconSpan.className = 'pdf-doc-icon';
-      iconSpan.textContent = doc.id === 1 ? '📄' : (doc.id === 2 ? '✨' : (doc.id === 3 ? '📘' : (doc.id === 4 ? '🎤' : '📊')));
-      
-      const textArea = document.createElement('div');
-      textArea.className = 'pdf-title-area';
-      textArea.innerHTML = `
-        <div class="pdf-title">${doc.title}</div>
-        <div class="pdf-meta">${doc.description}</div>
-      `;
-      
-      const typeSpan = document.createElement('span');
-      typeSpan.className = 'type-badge';
-      typeSpan.textContent = doc.metaType;
-      
-      button.appendChild(iconSpan);
-      button.appendChild(textArea);
-      button.appendChild(typeSpan);
-      
-      button.addEventListener('click', (e) => {
-        e.preventDefault();
-        selectDocument(doc);
-      });
-      
-      li.appendChild(button);
-      pdfListContainer.appendChild(li);
-    });
+    if (messageInput.value.trim() === '') {
+      isValid = false;
+      messageInput.style.borderColor = '#e53e3e';
+      setTimeout(() => messageInput.style.borderColor = '#e2e8f0', 1500);
+    } else messageInput.style.borderColor = '#e2e8f0';
     
-    // Auto-select the first document (Resume) as default, making the portfolio feel rich
-    if (ownerDocuments.length > 0) {
+    if (isValid) {
+      feedbackDiv.innerHTML = '<span style="color: #1f2b6c; background:#eef2ff; padding: 0.5rem 1rem; border-radius: 60px; display: inline-block;">✨ Thanks ' + nameInput.value.split(' ')[0] + '! I’ll reach out within 48h.</span>';
+      contactForm.reset();
       setTimeout(() => {
-        selectDocument(ownerDocuments[0]);
-      }, 80);
+        feedbackDiv.innerHTML = '';
+      }, 5000);
     } else {
-      showEmptyPreview("📌 No documents available. Please check back later.");
-      updateDownloadAndLabel(null);
+      feedbackDiv.innerHTML = '<span style="color:#b91c1c;">Please fill all fields correctly before sending.</span>';
+      setTimeout(() => {
+        if(feedbackDiv.innerHTML.includes('fill all fields')) feedbackDiv.innerHTML = '';
+      }, 3000);
     }
-  }
-
-  // adjust iframe height on window resize for responsiveness
-  function adjustIframeHeight() {
-    const iframeElem = document.querySelector('#pdfPreviewContainer iframe');
-    if (iframeElem) {
-      const isMobile = window.innerWidth < 780;
-      iframeElem.style.height = isMobile ? '55vh' : '68vh';
-    }
-  }
-
-  // also handle any dynamic container mutation (for resize)
-  window.addEventListener('resize', () => {
-    adjustIframeHeight();
   });
 
-  // additional small polish: video poster & fallback text
-  const videoElem = document.querySelector('video');
-  if (videoElem) {
-    videoElem.setAttribute('controlslist', 'nodownload'); // optional, just for clean UI
-  }
-
-  // initialize PDF list and watch for container changes
-  function initPortfolio() {
-    buildDocumentList();
-    // observer to fix iframe height when new iframe created
-    const observer = new MutationObserver(() => {
-      adjustIframeHeight();
+  // Additional: subtle scroll reveal effect for cards (just small interactive delight)
+  const projectCards = document.querySelectorAll('.project-card, .skill-card, .exp-card');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.style.opacity = '1';
+        entry.target.style.transform = 'translateY(0)';
+      }
     });
-    observer.observe(previewContainer, { childList: true, subtree: true });
-  }
+  }, { threshold: 0.1, rootMargin: "0px 0px -40px 0px" });
   
-  initPortfolio();
+  projectCards.forEach(card => {
+    card.style.opacity = '0';
+    card.style.transform = 'translateY(12px)';
+    card.style.transition = 'opacity 0.5s ease, transform 0.4s ease';
+    observer.observe(card);
+  });
   
-  // If any of the PDFs require extra CORS note, all URLs are standard test PDFs that work inside iframes.
-  // All documents are labeled as information about Alex Morgan: resume, portfolio, design principles, speaking kit, playbook.
-  // This creates a professional portfolio feel.
+  // manual fix for already visible cards (trigger first load)
+  window.addEventListener('load', () => {
+    projectCards.forEach(card => {
+      const rect = card.getBoundingClientRect();
+      if (rect.top < window.innerHeight - 100) {
+        card.style.opacity = '1';
+        card.style.transform = 'translateY(0)';
+      }
+    });
+  });
 </script>
 </body>
 </html>
