@@ -7,8 +7,6 @@
   <!-- Google Fonts + Smooth Behavior -->
   <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-  <!-- PDF.js for PDF viewing -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.16.105/pdf.min.js"></script>
   <style>
     * {
       margin: 0;
@@ -300,7 +298,98 @@
       gap: 12px;
     }
 
-    /* Media Viewer Modal */
+    /* Media Cards */
+    .media-showcase {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+      margin-top: 1rem;
+    }
+
+    .media-card {
+      background: white;
+      border-radius: 28px;
+      overflow: hidden;
+      transition: all 0.3s ease;
+      box-shadow: 0 12px 28px -8px rgba(0, 0, 0, 0.08);
+      border: 1px solid #eef2ff;
+      cursor: pointer;
+    }
+
+    .media-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 25px 35px -12px rgba(0, 0, 0, 0.15);
+    }
+
+    .media-preview {
+      height: 220px;
+      background: linear-gradient(135deg, #1f2b6c, #3b4b9a);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-size: 4rem;
+    }
+
+    .media-info {
+      padding: 1.5rem;
+    }
+
+    .media-info h3 {
+      font-size: 1.3rem;
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+    }
+
+    .media-info p {
+      color: #6b7280;
+      margin-bottom: 1rem;
+      font-size: 0.9rem;
+    }
+
+    .url-input-group {
+      margin-top: 1rem;
+      padding-top: 1rem;
+      border-top: 1px solid #eef2ff;
+    }
+
+    .url-label {
+      font-size: 0.75rem;
+      font-weight: 600;
+      color: #4b5563;
+      margin-bottom: 0.5rem;
+      display: block;
+    }
+
+    .url-field {
+      width: 100%;
+      padding: 0.6rem 1rem;
+      border: 1px solid #e2e8f0;
+      border-radius: 40px;
+      font-size: 0.85rem;
+      font-family: 'Inter', monospace;
+      background: #f9fafb;
+    }
+
+    .update-btn {
+      margin-top: 0.75rem;
+      background: #f0f4fe;
+      border: none;
+      padding: 0.4rem 1rem;
+      border-radius: 40px;
+      font-size: 0.75rem;
+      font-weight: 600;
+      color: #1f2b6c;
+      cursor: pointer;
+      transition: 0.2s;
+    }
+
+    .update-btn:hover {
+      background: #1f2b6c;
+      color: white;
+    }
+
+    /* Modal */
     .modal {
       display: none;
       position: fixed;
@@ -308,7 +397,7 @@
       left: 0;
       width: 100%;
       height: 100%;
-      background: rgba(0, 0, 0, 0.9);
+      background: rgba(0, 0, 0, 0.92);
       z-index: 1000;
       justify-content: center;
       align-items: center;
@@ -324,7 +413,7 @@
       max-width: 90vw;
       max-height: 90vh;
       background: white;
-      border-radius: 24px;
+      border-radius: 28px;
       overflow: auto;
       box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
     }
@@ -332,7 +421,7 @@
     .modal-video {
       width: 100%;
       max-width: 1000px;
-      border-radius: 24px;
+      border-radius: 28px;
       display: block;
     }
 
@@ -341,11 +430,12 @@
       height: 85vh;
       border: none;
       background: white;
+      border-radius: 28px;
     }
 
     .modal-close {
       position: absolute;
-      top: -40px;
+      top: -45px;
       right: 0;
       background: white;
       border: none;
@@ -365,88 +455,6 @@
       background: #1f2b6c;
       color: white;
       transform: scale(1.05);
-    }
-
-    /* Video Gallery Section */
-    .videos-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-      gap: 2rem;
-      margin-top: 1rem;
-    }
-
-    .video-card {
-      background: white;
-      border-radius: 24px;
-      overflow: hidden;
-      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
-      cursor: pointer;
-      transition: transform 0.2s;
-      border: 1px solid #eef2ff;
-    }
-
-    .video-card:hover {
-      transform: translateY(-5px);
-    }
-
-    .video-thumb {
-      background: #1f2b6c;
-      height: 180px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: white;
-      font-size: 3rem;
-      position: relative;
-    }
-
-    .video-thumb i {
-      opacity: 0.9;
-    }
-
-    .video-info {
-      padding: 1.2rem;
-    }
-
-    .video-info h4 {
-      font-size: 1.1rem;
-      font-weight: 700;
-      margin-bottom: 0.3rem;
-    }
-
-    /* PDF Gallery */
-    .pdfs-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-      gap: 2rem;
-      margin-top: 1rem;
-    }
-
-    .pdf-card {
-      background: white;
-      border-radius: 24px;
-      padding: 1.5rem;
-      text-align: center;
-      cursor: pointer;
-      transition: all 0.2s;
-      border: 1px solid #eef2ff;
-    }
-
-    .pdf-card:hover {
-      transform: translateY(-5px);
-      border-color: #1f2b6c;
-      box-shadow: 0 12px 24px rgba(0, 0, 0, 0.1);
-    }
-
-    .pdf-icon {
-      font-size: 3.5rem;
-      color: #e53e3e;
-      margin-bottom: 1rem;
-    }
-
-    .pdf-card h4 {
-      font-size: 1rem;
-      margin-bottom: 0.5rem;
     }
 
     /* About & Experience */
@@ -555,6 +563,16 @@
       transform: scale(1.1);
     }
 
+    .config-note {
+      background: #fef9e3;
+      border-left: 3px solid #f59e0b;
+      padding: 0.8rem 1.2rem;
+      border-radius: 16px;
+      margin-bottom: 2rem;
+      font-size: 0.85rem;
+      color: #92400e;
+    }
+
     @media (max-width: 760px) {
       .container {
         padding: 0 1.5rem;
@@ -613,7 +631,7 @@
         <p class="hero-desc">I'm Alex Morgan — product designer & front-end architect. I turn complex ideas into elegant, human-friendly interfaces.</p>
         <div class="hero-buttons">
           <a href="#work" class="btn btn-primary">View projects <i class="fas fa-arrow-right"></i></a>
-          <a href="#media" class="btn btn-outline">Watch reels <i class="fas fa-play"></i></a>
+          <a href="#media" class="btn btn-outline">Featured media <i class="fas fa-play"></i></a>
         </div>
       </div>
       <div class="hero-image">
@@ -660,7 +678,6 @@
             <h3>NovaBank</h3>
             <p>Minimalist banking dashboard with real-time analytics & secure authentication.</p>
             <div class="project-tags"><span class="tag">React</span><span class="tag">Tailwind</span><span class="tag">D3</span></div>
-            <a class="project-link view-pdf" data-pdf="sample">📄 View Case Study PDF →</a>
           </div>
         </div>
         <div class="project-card">
@@ -669,7 +686,6 @@
             <h3>EcoChain</h3>
             <p>Sustainable supply chain tracker — interactive map, carbon footprint visualization.</p>
             <div class="project-tags"><span class="tag">Next.js</span><span class="tag">Solidity</span><span class="tag">Mapbox</span></div>
-            <a class="project-link view-pdf" data-pdf="whitepaper">📑 Whitepaper PDF →</a>
           </div>
         </div>
         <div class="project-card">
@@ -678,53 +694,52 @@
             <h3>Artelier</h3>
             <p>Creative portfolio builder for visual artists — drag-n-drop editor.</p>
             <div class="project-tags"><span class="tag">Vue</span><span class="tag">Node</span><span class="tag">MongoDB</span></div>
-            <a class="project-link view-pdf" data-pdf="portfolio">🎨 Design Deck PDF →</a>
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Video Gallery Section -->
+  <!-- Media Section: One Video + One PDF (self-linkable) -->
   <section id="media">
     <div class="container">
-      <h2 class="section-title">Featured videos</h2>
-      <div class="videos-grid">
-        <div class="video-card" data-video="https://www.w3schools.com/html/mov_bbb.mp4" data-title="Showreel 2025">
-          <div class="video-thumb"><i class="fas fa-play-circle" style="font-size: 4rem;"></i></div>
-          <div class="video-info"><h4>🎬 Creative Showreel 2025</h4><p>Motion design & UI interactions</p></div>
-        </div>
-        <div class="video-card" data-video="https://sample-videos.com/video123/mp4/720/big_buck_bunny_720p_1mb.mp4" data-title="Design System Deep Dive">
-          <div class="video-thumb"><i class="fas fa-video" style="font-size: 4rem;"></i></div>
-          <div class="video-info"><h4>📐 Design System Workshop</h4><p>Component architecture & tokens</p></div>
-        </div>
-        <div class="video-card" data-video="https://www.learningcontainer.com/wp-content/uploads/2020/05/sample-mp4-file.mp4" data-title="Case Study: NovaBank">
-          <div class="video-thumb"><i class="fas fa-chart-line" style="font-size: 4rem;"></i></div>
-          <div class="video-info"><h4>🏦 NovaBank UX Case Study</h4><p>From research to final prototype</p></div>
-        </div>
+      <h2 class="section-title">Featured Media</h2>
+      <div class="config-note">
+        <i class="fas fa-link"></i> <strong>Customize your content:</strong> Use the input fields below to add your own video URL (MP4) and PDF document link. Both will be viewable directly on this page.
       </div>
-    </div>
-  </section>
+      <div class="media-showcase">
+        <!-- Video Card -->
+        <div class="media-card" id="videoCard">
+          <div class="media-preview">
+            <i class="fas fa-play-circle"></i>
+          </div>
+          <div class="media-info">
+            <h3>🎬 Featured Video</h3>
+            <p>Click to watch your custom video presentation, showreel, or project walkthrough.</p>
+            <div class="url-input-group">
+              <label class="url-label"><i class="fas fa-video"></i> Your Video URL (MP4):</label>
+              <input type="text" id="videoUrlInput" class="url-field" placeholder="https://example.com/your-video.mp4" value="https://www.w3schools.com/html/mov_bbb.mp4">
+              <button id="updateVideoBtn" class="update-btn"><i class="fas fa-save"></i> Set Video Link</button>
+            </div>
+            <button id="watchVideoBtn" class="btn" style="margin-top: 1rem; width: 100%; background: #1f2b6c;">▶ Watch Video</button>
+          </div>
+        </div>
 
-  <!-- PDF Gallery Section -->
-  <section id="pdfs">
-    <div class="container">
-      <h2 class="section-title">Resources & Documents</h2>
-      <div class="pdfs-grid">
-        <div class="pdf-card" data-pdf="resume">
-          <div class="pdf-icon"><i class="fas fa-file-pdf"></i></div>
-          <h4>📄 Resume - Alex Morgan</h4>
-          <p style="font-size:0.8rem; color:#6b7280;">Full CV with experience & skills</p>
-        </div>
-        <div class="pdf-card" data-pdf="portfolio">
-          <div class="pdf-icon"><i class="fas fa-file-pdf"></i></div>
-          <h4>🎨 Portfolio Book 2025</h4>
-          <p style="font-size:0.8rem; color:#6b7280;">Selected works & visual essays</p>
-        </div>
-        <div class="pdf-card" data-pdf="whitepaper">
-          <div class="pdf-icon"><i class="fas fa-file-pdf"></i></div>
-          <h4>📘 EcoChain Whitepaper</h4>
-          <p style="font-size:0.8rem; color:#6b7280;">Technical deep dive</p>
+        <!-- PDF Card -->
+        <div class="media-card" id="pdfCard">
+          <div class="media-preview" style="background: linear-gradient(135deg, #dc2626, #b91c1c);">
+            <i class="fas fa-file-pdf"></i>
+          </div>
+          <div class="media-info">
+            <h3>📄 Portfolio Document</h3>
+            <p>View your resume, case study PDF, or any document you want to share.</p>
+            <div class="url-input-group">
+              <label class="url-label"><i class="fas fa-link"></i> Your PDF URL:</label>
+              <input type="text" id="pdfUrlInput" class="url-field" placeholder="https://example.com/document.pdf" value="https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf">
+              <button id="updatePdfBtn" class="update-btn"><i class="fas fa-save"></i> Set PDF Link</button>
+            </div>
+            <button id="viewPdfBtn" class="btn" style="margin-top: 1rem; width: 100%; background: #dc2626;">📖 View PDF</button>
+          </div>
         </div>
       </div>
     </div>
@@ -738,9 +753,6 @@
           <h2 class="section-title" style="margin-bottom: 1.2rem;">About me</h2>
           <p>I'm a creative technologist based in NYC, blending modern UI engineering with human-centered design. Over the past 6 years, I've collaborated with startups and global brands to ship products that people love to use.</p>
           <p>My approach is research-driven, obsessive about details, and always focused on performance and accessibility. Outside code, I mentor junior designers and contribute to open-source design systems.</p>
-          <div style="margin-top: 1.8rem;">
-            <a href="#" class="btn btn-outline view-pdf" data-pdf="resume"><i class="fas fa-download"></i> View Resume PDF</a>
-          </div>
         </div>
         <div style="flex: 0.9">
           <div class="exp-card">
@@ -794,7 +806,7 @@
       <a href="#" aria-label="Dribbble"><i class="fab fa-dribbble"></i></a>
       <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
     </div>
-    <p>© 2025 Alex Morgan — Designed with purpose & curiosity.</p>
+    <p>© 2025 Alex Morgan — Designed with purpose & curiosity. Customize your video and PDF links above.</p>
   </div>
 </footer>
 
@@ -807,142 +819,97 @@
 </div>
 
 <script>
-  // Setup PDF.js worker
-  pdfjsLib.GlobalWorkerOptions.workerSrc = 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.16.105/pdf.worker.min.js';
-  
+  // Get DOM elements
   const modal = document.getElementById('mediaModal');
   const modalBody = document.getElementById('modalBody');
   const closeBtn = document.getElementById('closeModalBtn');
   
-  function closeModal() {
-    modal.classList.remove('active');
-    modalBody.innerHTML = '';
+  // Video and PDF URLs (stored in localStorage to persist user changes)
+  let currentVideoUrl = localStorage.getItem('portfolioVideoUrl') || 'https://www.w3schools.com/html/mov_bbb.mp4';
+  let currentPdfUrl = localStorage.getItem('portfolioPdfUrl') || 'https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf';
+  
+  // Input fields
+  const videoUrlInput = document.getElementById('videoUrlInput');
+  const pdfUrlInput = document.getElementById('pdfUrlInput');
+  const updateVideoBtn = document.getElementById('updateVideoBtn');
+  const updatePdfBtn = document.getElementById('updatePdfBtn');
+  const watchVideoBtn = document.getElementById('watchVideoBtn');
+  const viewPdfBtn = document.getElementById('viewPdfBtn');
+  
+  // Initialize input values
+  videoUrlInput.value = currentVideoUrl;
+  pdfUrlInput.value = currentPdfUrl;
+  
+  // Update video URL
+  function updateVideoUrl() {
+    let newUrl = videoUrlInput.value.trim();
+    if (newUrl === '') {
+      alert('Please enter a valid video URL (MP4 format recommended)');
+      return;
+    }
+    currentVideoUrl = newUrl;
+    localStorage.setItem('portfolioVideoUrl', currentVideoUrl);
+    alert('✅ Video link updated! Click "Watch Video" to view your content.');
   }
   
-  function openVideo(videoUrl, title) {
+  // Update PDF URL
+  function updatePdfUrl() {
+    let newUrl = pdfUrlInput.value.trim();
+    if (newUrl === '') {
+      alert('Please enter a valid PDF URL');
+      return;
+    }
+    currentPdfUrl = newUrl;
+    localStorage.setItem('portfolioPdfUrl', currentPdfUrl);
+    alert('✅ PDF link updated! Click "View PDF" to open your document.');
+  }
+  
+  // Open video modal
+  function openVideo() {
+    if (!currentVideoUrl) {
+      alert('No video URL set. Please add a video link above.');
+      return;
+    }
     modalBody.innerHTML = `
       <video class="modal-video" controls autoplay>
-        <source src="${videoUrl}" type="video/mp4">
-        Your browser does not support the video tag.
+        <source src="${currentVideoUrl}" type="video/mp4">
+        Your browser does not support the video tag. 
+        <a href="${currentVideoUrl}" target="_blank">Download video</a>
       </video>
     `;
     modal.classList.add('active');
   }
   
-  async function openPdf(pdfType) {
-    // Create sample PDF data for demo purposes (Base64 encoded simple PDF)
-    // For realistic experience, we'll generate a simple PDF blob or use embedded viewer with sample content.
-    // Since we need actual PDF viewing, we'll create dynamic PDF blobs with meaningful content.
-    let pdfContent = '';
-    if (pdfType === 'resume') {
-      pdfContent = `%PDF-1.4
-1 0 obj<</Type/Catalog/Pages 2 0 R>>endobj
-2 0 obj<</Type/Pages/Kids[3 0 R]/Count 1>>endobj
-3 0 obj<</Type/Page/MediaBox[0 0 612 792]/Parent 2 0 R/Resources<<>>>>endobj
-xref
-0 4
-0000000000 65535 f 
-0000000009 00000 n 
-0000000052 00000 n 
-0000000100 00000 n 
-trailer<</Size 4/Root 1 0 R>>
-startxref
-197
-%%EOF`;
-    } else {
-      pdfContent = `%PDF-1.4
-1 0 obj<</Type/Catalog/Pages 2 0 R>>endobj
-2 0 obj<</Type/Pages/Kids[3 0 R]/Count 1>>endobj
-3 0 obj<</Type/Page/MediaBox[0 0 612 792]/Parent 2 0 R/Resources<<>>>>endobj
-xref
-0 4
-0000000000 65535 f 
-0000000009 00000 n 
-0000000052 00000 n 
-0000000100 00000 n 
-trailer<</Size 4/Root 1 0 R>>
-startxref
-197
-%%EOF`;
+  // Open PDF modal
+  function openPdf() {
+    if (!currentPdfUrl) {
+      alert('No PDF URL set. Please add a PDF link above.');
+      return;
     }
-    // Create a blob and render using PDF.js or iframe
-    const blob = new Blob([pdfContent], { type: 'application/pdf' });
-    const url = URL.createObjectURL(blob);
-    modalBody.innerHTML = `<iframe class="modal-pdf" src="${url}" frameborder="0"></iframe>`;
+    // Use iframe for PDF viewing (most reliable)
+    modalBody.innerHTML = `
+      <iframe class="modal-pdf" src="${currentPdfUrl}" frameborder="0">
+        This browser does not support PDF embedding. 
+        <a href="${currentPdfUrl}" target="_blank">Download PDF</a>
+      </iframe>
+    `;
     modal.classList.add('active');
-    // Cleanup object URL on close
-    const cleanup = () => {
-      URL.revokeObjectURL(url);
-      modalBody.removeEventListener('closeModalInternal', cleanup);
-    };
-    modal.addEventListener('closeModalInternal', cleanup, { once: true });
   }
   
-  // For demo, we also create richer PDF with actual readable content using iframe with data URI
-  function openSamplePDF(title) {
-    // Generate a nice styled HTML that will be converted to PDF-like? but simpler: use data:text/html inside iframe?
-    // Better: use iframe with HTML representation to simulate PDF viewer but we want actual PDF. Using PDF.js rendering might be overkill.
-    // We'll implement a better method: embed a real PDF from a dataURI with actual content.
-    const pdfHtml = `
-    <html><body style="font-family: sans-serif; padding:2rem;"><h1>${title}</h1>
-    <p>This is a demo PDF document for ${title}. In a real scenario, this would be a detailed portfolio case study, whitepaper, or resume.</p>
-    <p><strong>Skills:</strong> React, TypeScript, UI/UX, Product Strategy.</p>
-    <p>Experience: 6+ years in design and frontend development.</p>
-    <hr/><footer>Alex Morgan Portfolio — ${new Date().getFullYear()}</footer>
-    </body></html>`;
-    const pdfBlob = new Blob([pdfHtml], { type: 'application/pdf' });
-    // Note: HTML as PDF won't render perfectly but for demo we use iframe with PDF mime, but browser will download. Instead, we show html directly inside modal with styling.
-    // Let's show an HTML document styled like PDF.
-    modalBody.innerHTML = `<div style="background:white; padding:2rem; max-height:85vh; overflow:auto; border-radius:20px;">
-      <h2>📄 ${title}</h2>
-      <div style="margin-top:1rem;">${title === 'Resume - Alex Morgan' ? 
-        '<p><strong>Alex Morgan</strong><br/>Product Designer & Frontend Architect</p><p>• Led design teams at Fortune 500<br/>• 8+ shipped products<br/>• Figma Expert, React Specialist</p>' : 
-        '<p>Detailed case study: NovaBank redefined digital banking with AI insights. Achieved 98% accessibility score and 35% faster load times.</p><p>Full PDF version available on request.</p>'}</div>
-      <button class="btn btn-outline" style="margin-top:1.5rem;" id="closePdfBtn">Close</button>
-    </div>`;
-    modal.classList.add('active');
-    document.getElementById('closePdfBtn')?.addEventListener('click', closeModal);
+  // Close modal
+  function closeModal() {
+    modal.classList.remove('active');
+    modalBody.innerHTML = '';
   }
   
-  // Enhanced PDF opening
-  window.openPdfViewer = function(type) {
-    let title = '';
-    if (type === 'resume') title = 'Resume - Alex Morgan';
-    else if (type === 'portfolio') title = 'Portfolio Book 2025';
-    else if (type === 'whitepaper') title = 'EcoChain Whitepaper';
-    else title = 'Document';
-    openSamplePDF(title);
-  };
-  
-  // Event listeners for PDF links
-  document.querySelectorAll('.view-pdf').forEach(el => {
-    el.addEventListener('click', (e) => {
-      e.preventDefault();
-      const pdfType = el.getAttribute('data-pdf') || 'portfolio';
-      openSamplePDF(pdfType === 'resume' ? 'Resume - Alex Morgan' : 
-                    (pdfType === 'whitepaper' ? 'EcoChain Whitepaper' : 'Portfolio Case Study'));
-    });
-  });
-  
-  // Video cards
-  document.querySelectorAll('.video-card').forEach(card => {
-    card.addEventListener('click', () => {
-      const videoUrl = card.getAttribute('data-video');
-      const title = card.getAttribute('data-title') || 'Video';
-      if (videoUrl) openVideo(videoUrl, title);
-    });
-  });
-  
-  // PDF cards
-  document.querySelectorAll('.pdf-card').forEach(card => {
-    card.addEventListener('click', () => {
-      const pdfType = card.getAttribute('data-pdf') || 'portfolio';
-      openSamplePDF(pdfType === 'resume' ? 'Resume - Alex Morgan' : 
-                    (pdfType === 'whitepaper' ? 'EcoChain Whitepaper' : 'Portfolio Case Study'));
-    });
-  });
-  
+  // Event listeners
+  updateVideoBtn.addEventListener('click', updateVideoUrl);
+  updatePdfBtn.addEventListener('click', updatePdfUrl);
+  watchVideoBtn.addEventListener('click', openVideo);
+  viewPdfBtn.addEventListener('click', openPdf);
   closeBtn.addEventListener('click', closeModal);
+  
+  // Click outside modal to close
   modal.addEventListener('click', (e) => {
     if (e.target === modal) closeModal();
   });
@@ -960,6 +927,7 @@ startxref
     const emailPattern = /^[^\s@]+@([^\s@]+\.)+[^\s@]+$/;
     if (!emailPattern.test(emailInput.value.trim())) isValid = false;
     if (messageInput.value.trim() === '') isValid = false;
+    
     if (isValid) {
       feedbackDiv.innerHTML = '<span style="color: #1f2b6c; background:#eef2ff; padding: 0.5rem 1rem; border-radius: 60px;">✨ Thanks ' + nameInput.value.split(' ')[0] + '! I’ll reach out soon.</span>';
       contactForm.reset();
@@ -971,7 +939,7 @@ startxref
   });
   
   // Scroll reveal effect
-  const revealElements = document.querySelectorAll('.project-card, .skill-card, .exp-card, .video-card, .pdf-card');
+  const revealElements = document.querySelectorAll('.project-card, .skill-card, .exp-card, .media-card');
   const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
@@ -980,12 +948,14 @@ startxref
       }
     });
   }, { threshold: 0.1 });
+  
   revealElements.forEach(el => {
     el.style.opacity = '0';
     el.style.transform = 'translateY(12px)';
     el.style.transition = 'opacity 0.5s ease, transform 0.4s ease';
     observer.observe(el);
   });
+  
   window.addEventListener('load', () => {
     revealElements.forEach(el => {
       const rect = el.getBoundingClientRect();
